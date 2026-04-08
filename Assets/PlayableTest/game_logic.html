@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Playable Ad</title>
+    <style>
+        body, html { margin: 0; padding: 0; background-color: #333; overflow: hidden; width: 100%; height: 100%; }
+        #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        canvas { display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
+        #cta-button-overlay {
+            position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);
+            display: none; padding: 15px 40px; background: linear-gradient(to bottom, #ff9800, #f57c00);
+            color: white; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 24px;
+            border-radius: 30px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation: pulse 1s infinite alternate; cursor: pointer; text-transform: uppercase;
+        }
+        @keyframes pulse { 0% { transform: translateX(-50%) scale(1); } 100% { transform: translateX(-50%) scale(1.05); } }
+        
+        #result-text {
+            position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
+            display: none; color: white; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 40px;
+            text-align: center; text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        }
+    </style>
+    <!-- THƯ VIỆN PHASER 3 MINIFIED -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+    <script>
+        // ASSETS INJECTED HERE
+        const GAME_ASSETS = __ASSETS_JSON__;
+    </script>
+</head>
+<body>
+    <div id="game-container"></div>
+    <div id="result-text">YOU WIN!</div>
+    <div id="cta-button-overlay" onclick="openStore()">PLAY FULL GAME</div>
+
+    <script>
+        // PLATFORM BRIDGE LOGIC
+        function openStore() {
+            var isMraid = typeof mraid !== "undefined";
+            if (isMraid) {
+                mraid.open("https://play.google.com/store/apps/details?id=com.playable.ad");
+            } else {
+                window.open("https://play.google.com/store/apps/details?id=com.playable.ad", "_blank");
+            }
+        }
+
+        class BootScene extends Phaser.Scene {
+            constructor() { super('BootScene'); }
+            preload() {
+                for (let key in GAME_ASSETS) {
+                    if(key.endsWith('.png') || key.endsWith('.jpg') || key.endsWith('.webp')) {
+                        this.load.image(key, GAME_ASSETS[key]);
+                    }
+                }
+                // Nếu thiều tài nguyên hand.png, tự vẽ bằng graphics (fallback)
+            }
+            create() {
+                this.scene.start('GameScene');
+            }
+        }
+
+        class GameScene extends Phaser.Scene {
+            constructor() { super('GameScene'); }
+            create() {
+                this.width = this.cameras.main.width;
+                this.height = this.cameras.main.height;
+                
+                // Thay vì dùng physics phức tạp, dùng Arcade Physics nhẹ
+                this.physics.world.gravity.y = 800;
+                
+                // Môi trường
+                this.bg = this.add.rectangle(this.width/2, this.height/2, this.width, this.height, 0x5c94fc);
+                this.bg.setDepth(-1);
+                
+                // Tạo Player
+                let pKey = GAME_ASSETS['Player.png'] ? 'Player.png' : null;
+                this.player = pKey ? this.physics.add.sprite(this.width * 0.2, this.height * 0.5, pKey) : this.physics.add.sprite(this.width * 0.2, this.height * 0.5, '').setTint(0xffff00);
+                if (!pKey) this.player.setTexture(this.textureFallback('Player'));
+                this.player.setDisplaySize(50, 50);
+                this.player.setCollideWorldBounds(true);
+                this.player.body.checkCollision.up = false; // có thể bay ra ngoài bên trên nhưng rớt xuống
+                
+                this.player.body.allowGravity = false; // tạm dừng lúc tutorial
+                
+                // Groups
+                this.bullets = this.physics.add.group();
+                this.pipes = this.physics.add.group({ allowGravity: false, immovable: true });
+                this.blocks = this.physics.add.group({ allowGravity: false, immovable: true });
+                this.particles = this.add.particles(0, 0, GAME_ASSETS['point.png'] ? 'point.png' : null, {
+                    speed: 200, lifespan: 300, quantity: 10, scale: {start: 0.5, end: 0},
+                    emitting: false
+                });
+
+                // Xây dựng map
+                this.buildMap();
+
+                // Lắng nghe va chạm
+                this.physics.add.overlap(this.player, this.pipes, this.gameOver, null, this);
+                this.physics.add.collider(this.player, this.blocks, this.gameOver, null, this);
+                this.physics.add.overlap(this.bullets, this.blocks, this.hitBlock, null, this);
+                
+                // Tutorial / Input
+                this.isGameStarted = false;
+                
+                let handKey = GAME_ASSETS['point.png'] ? 'point.png' : null;
+                this.hand = handKey ? this.add.image(this.width/2, this.height/2, handKey) : this.add.circle(this.width/2, this.height/2, 20, 0xff0000);
+                if(handKey) this.hand.setDisplaySize(60, 60);
+
+                this.overlay = this.add.rectangle(this.width/2, this.height/2, this.width, this.height, 0x000000, 0.4);
+                this.tutorialText = this.add.text(this.width/2, this.height/2 - 80, "TAP TO FLY & DESTROY!", { fontSize: '28px', color: '#fff', fontStyle: 'bold'}).setOrigin(0.5);
+
+                this.tweens.add({
+                    targets: this.hand,
+                    y: this.height/2 + 20,
+                    duration: 500,
+                    yoyo: true,
+                    repeat: -1
+                });
+
+                this.input.on('pointerdown', this.jump, this);
+                
+                // Bắn súng loop
+                this.fireTimer = this.time.addEvent({
+                    delay: 500,
+                    callback: this.fireBullet,
+                    callbackScope: this,
+                    loop: true,
+                    paused: true
+                });
+
+                this.scale.on('resize', this.resizeParams, this);
+            }
+            
+            textureFallback(name) {
+                let g = this.make.graphics({x:0,y:0}, false);
+                g.fillStyle(0xffffff,1); g.fillRect(0,0,50,50);
+                g.generateTexture(name + 'fb', 50, 50);
+                return name + 'fb';
+            }
+
+            buildMap() {
+                // Pipe type from assets
+                let pipeKey = GAME_ASSETS['Spike Traps .png'] ? 'Spike Traps .png' : null;
+                let blockKey = GAME_ASSETS['Jigsaw.png'] ? 'Jigsaw.png' : null;
+
+                // Cụm 1: Chỉ cần bay qua (cột trên và dưới)
+                let gapHeight = 160;
+                let c1x = this.width + 300;
+                this.createPipePair(c1x, this.height * 0.4, gapHeight, pipeKey);
+
+                // Cụm 2: Cột trên dưới bị bịt kín bởi khối gạch
+                let c2x = this.width + 900;
+                this.createPipePair(c2x, this.height * 0.5, gapHeight + 100, pipeKey);
+                
+                // Gạch chặn cửa 2
+                this.createBlock(c2x, this.height * 0.5, blockKey, 2); // HP = 2
+                
+                // Đích (Dùng để kích hoạt Win)
+                this.finishLine = this.add.rectangle(c2x + 200, this.height/2, 20, this.height, 0x00ff00, 0);
+                this.physics.add.existing(this.finishLine, false);
+                this.finishLine.body.allowGravity = false;
+                this.physics.add.overlap(this.player, this.finishLine, this.gameWin, null, this);
+            }
+
+            createPipePair(x, middleY, gap, pipeKey) {
+                // Top pipe
+                let tpipe = this.pipes.create(x, middleY - gap/2, pipeKey || '').setOrigin(0.5, 1);
+                if(!pipeKey) tpipe.setTexture(this.textureFallback('pipe'));
+                tpipe.setDisplaySize(80, this.height);
+                
+                // Bot pipe
+                let bpipe = this.pipes.create(x, middleY + gap/2, pipeKey || '').setOrigin(0.5, 0);
+                if(!pipeKey) bpipe.setTexture(this.textureFallback('pipe'));
+                bpipe.setDisplaySize(80, this.height);
+            }
+
+            createBlock(x, y, blockKey, hp) {
+                let blk = this.blocks.create(x, y, blockKey || '');
+                if(!blockKey) blk.setTexture(this.textureFallback('blk'));
+                blk.setDisplaySize(60, gapHeight ? 100 : 100);
+                blk.hp = hp;
+                blk.setTint(0xffaaaa);
+            }
+
+            jump() {
+                if(!this.isGameStarted) {
+                    this.isGameStarted = true;
+                    this.hand.destroy();
+                    this.overlay.destroy();
+                    this.tutorialText.destroy();
+                    this.player.body.allowGravity = true;
+                    this.fireTimer.paused = false;
+                }
+                
+                // Reset velocity to prevent compound force
+                this.player.setVelocityY(-350);
+            }
+
+            fireBullet() {
+                let bulletKey = GAME_ASSETS['Jigsaw.png'] ? 'Jigsaw.png' : null;
+                let bullet = this.bullets.create(this.player.x + 20, this.player.y, bulletKey || '');
+                if(!bulletKey) bullet.setTexture(this.textureFallback('bul'));
+                bullet.setDisplaySize(20, 20);
+                bullet.setTint(0xffff00);
+                bullet.body.allowGravity = false;
+                bullet.setVelocityX(400);
+            }
+
+            hitBlock(bullet, block) {
+                bullet.destroy();
+                block.hp--;
+                
+                // Flash effect
+                this.tweens.add({
+                    targets: block,
+                    alpha: 0.2,
+                    yoyo: true,
+                    duration: 50
+                });
+
+                if(block.hp <= 0) {
+                    this.particles.emitParticleAt(block.x, block.y);
+                    block.destroy();
+                }
+            }
+
+            update() {
+                if(!this.isGameStarted) return;
+
+                // Move obstacles
+                let speed = -150;
+                this.pipes.getChildren().forEach(p => p.x += speed * (this.game.loop.delta/1000));
+                this.blocks.getChildren().forEach(b => b.x += speed * (this.game.loop.delta/1000));
+                this.finishLine.x += speed * (this.game.loop.delta/1000);
+
+                // Destroy out of bound bullets
+                this.bullets.getChildren().forEach(b => {
+                    if (b.x > this.width + 50) b.destroy();
+                });
+
+                // Check fall out
+                if(this.player.y >= this.height - 20) {
+                    this.gameOver();
+                }
+            }
+
+            gameOver() {
+                this.scene.start('EndCardScene', { win: false });
+            }
+            
+            gameWin() {
+                this.scene.start('EndCardScene', { win: true });
+            }
+
+            resizeParams(gameSize) {
+                this.width = gameSize.width;
+                this.height = gameSize.height;
+                if(this.bg) {
+                    this.bg.setPosition(this.width/2, this.height/2);
+                    this.bg.setDisplaySize(this.width, this.height);
+                }
+            }
+        }
+
+        class EndCardScene extends Phaser.Scene {
+            constructor() { super('EndCardScene'); }
+            create(data) {
+                let isWin = data.win;
+                let textElem = document.getElementById('result-text');
+                textElem.style.display = 'block';
+                textElem.innerText = isWin ? "MISSIONS COMPLETE!" : "GAME OVER";
+                textElem.style.color = isWin ? "#4CAF50" : "#F44336";
+
+                document.getElementById('cta-button-overlay').style.display = 'block';
+            }
+        }
+
+        const config = {
+            type: Phaser.WEBGL,
+            parent: 'game-container',
+            transparent: false,
+            scale: {
+                mode: Phaser.Scale.RESIZE,
+                autoCenter: Phaser.Scale.CENTER_BOTH,
+                width: '100%',
+                height: '100%'
+            },
+            physics: {
+                default: 'arcade',
+                arcade: { debug: false }
+            },
+            scene: [BootScene, GameScene, EndCardScene]
+        };
+
+        const game = new Phaser.Game(config);
+
+        window.addEventListener('focus', () => {
+            if (game && game.sound) { game.sound.context.resume(); }
+        });
+    </script>
+</body>
+</html>
