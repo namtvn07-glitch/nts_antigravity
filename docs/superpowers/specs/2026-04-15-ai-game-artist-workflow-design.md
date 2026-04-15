@@ -35,3 +35,11 @@ Hệ thống sử dụng mô hình chuyên biệt hóa:
 ## 4. Quản lý trạng thái & Lưu trữ Hiện vật (State & Output Management)
 - **Lưu trữ vào Workspace Folder:** Toàn bộ ảnh được tạo ra từ Nano Banana sẽ tự động được hệ thống lưu thẳng vào một thư mục cụ thể nằm bên trong dự án (Ví dụ: `Assets/GameArtist/Generated/`). Việc này đảm bảo ảnh có sẵn trực tiếp trên máy của Artist thay vì nén trong hệ thống Artifact ngầm của Agent.
 - **Context Awareness:** Các phiên làm việc (Chat sessions) sẽ tham chiếu thẳng đến các ảnh đã lưu bằng đường dẫn thư mục dự án. Artist trực tiếp gắn Feedback để Agent chạy vòng lặp QA và tạo thêm ảnh mới đè vào hoặc sinh bản sao V2, V3 trong cùng thư mục `Generated/`.
+
+## 5. Giao diện Tương tác (User Interface)
+- **Single-file HTML UI:** Toàn bộ quy trình sẽ được đóng gói giao diện thành một file HTML duy nhất (Ví dụ: `AIGameArtist_UI.html`) để Artist dễ dàng tương tác.
+- **Các thành phần giao diện chính:**
+  - Khu vực Upload bản phác thảo (Draft Image) và ảnh tham khảo (Reference Image).
+  - Form nhập Prompt mô tả yêu cầu và Dropdown chọn Template.
+  - Khung hiển thị trực tiếp tiến trình làm việc (Logs) của luồng Agent.
+  - Khung Gallery tự động hiển thị các hình ảnh kết quả đã được lưu trong thư mục `Assets/GameArtist/Generated/`.
