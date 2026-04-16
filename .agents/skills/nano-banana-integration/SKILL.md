@@ -13,11 +13,11 @@ This skill implements the Image Worker logic for the AI Game Artist workflow wit
 When you decide to trigger this skill to generate an image via Nano Banana:
 
 1. **Formulate the Prompt & Style Override Check (Text DNA & Image Conditioning):**
-   - Synthesize the user's intent or the raw prompt. Add robust negative constraints to prevent style deviation (e.g. `"2D premium game environment art style, visual novel background. NO 3D render, NO photorealistic camera lens, NO granular realism"`).
-   - **Crucial DNA Style Check:** Identify if a custom Style Template (e.g., `Style_A`, `SampleStyle`, `Semi-Realistic`) is requested in the user's instructions.
-   - If a specific Style is detected, use `view_file` to read `<workspace>/Assets/GameArtist/StyleLibrary/<style_name>/DNA_Profile.md` and aggressively inject the DNA text directly into your final prompt.
-   - Additionally, you MUST use `list_dir` on the style's folder (`<workspace>/Assets/GameArtist/StyleLibrary/<style_name>`) and pick 1 to 3 actual image paths (`.png`, `.jpg`) to serve as "Visual Anchors".
-   - If no custom style is mentioned, simply enhance the prompt with general artistic modifiers.
+   - **Crucial DNA Style Check:** Identify if a custom Style Template (e.g., `Style_A`, `SampleStyle`, `Semi-Realistic`) is requested. If yes, use `view_file` to read `<workspace>/Assets/GameArtist/StyleLibrary/<style_name>/DNA_Profile.md` to extract the DNA text. Also use `list_dir` on the style folder to pick 1 to 3 actual image paths (`.png`, `.jpg`) as "Visual Anchors".
+   - **Prompt Engineering Structure:** You MUST structure the prompt to prioritize the *Medium and Style* BEFORE the *Subject*. For example: `"A 2D digital illustration in premium [Style Name] game art style, depicting [SUBJECT]."`.
+   - **Handling Real-World Bias:** If the subject is a real-world location (e.g., a famous landmark), the generator will bias heavily towards photos. You must counteract this by aggressively injecting terms like `"digital painting"`, `"concept art"`, `"hand-drawn brushstrokes"`.
+   - **Positive Stylistic Assertions over Negative Prompts:** Instead of using negative words that can confuse the model (e.g., `"NO 3D render, NO photorealism"`), use overwhelming positive modifiers to lock the style (e.g., `"flat 2D illustration, stylized painterly texture, game engine asset"`).
+   - Inject the extracted **DNA text** into this well-structured prompt.
 
 2. **Generate Image:**
    - Call your built-in `generate_image` tool directly.
