@@ -1,0 +1,72 @@
+<h2>Thiết kế Cấu trúc Tích hợp Nano Banana</h2>
+<p class="subtitle">Chúng ta cần đưa Nano Banana Engine vào hoạt động bên trong Antigravity. Dưới đây là 3 hướng tiếp cận phổ biến kèm theo ưu/nhược điểm. Xin hãy chọn phương án bạn thấy phù hợp nhất.</p>
+
+<div class="options">
+  <div class="option" data-choice="native_tool" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Native Antigravity Tool (Khuyến nghị)</h3>
+      <p>Viết một Tool (Skill) nội bộ trực tiếp cho Antigravity. Tool này định nghĩa sẵn JSON schema cho input (prompt, reference, template id) và gói gọn việc gọi API Nano Banana.</p>
+    </div>
+    <div class="pros-cons" style="margin-top: 10px; margin-left: 20px;">
+      <div class="pros">
+        <h4 style="margin-bottom: 5px; color: var(--color-success)">Ưu điểm</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+          <li>Nhanh chóng, tận dụng được khả năng tool-calling gốc của các Agent trong hệ thống.</li>
+          <li>Quản lý file đầu ra (Artifacts) trơn tru vì mọi thứ đều trong nội bộ.</li>
+        </ul>
+      </div>
+      <div class="cons" style="margin-top: 10px;">
+        <h4 style="margin-bottom: 5px; color: var(--color-error)">Nhược điểm</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+          <li>Config API key và logic nằm trực tiếp trong Antigravity, khó tái sử dụng nếu Studio xài thêm một nền tảng không phải Antigravity.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="mcp_server" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Model Context Protocol (MCP) Server</h3>
+      <p>Xây dựng một MCP Server độc lập cung cấp tính năng "Xử lý ảnh bằng Nano Banana". Antigravity chỉ đơn giản là kết nối vào Server MCP này như một Client.</p>
+    </div>
+    <div class="pros-cons" style="margin-top: 10px; margin-left: 20px;">
+      <div class="pros">
+        <h4 style="margin-bottom: 5px; color: var(--color-success)">Ưu điểm</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+          <li>Kiến trúc siêu decouple (tách bạch hoàn toàn).</li>
+          <li>Dễ dàng chia sẻ "công cụ vẽ" này cho các hệ thống Agent khác trong tương lai (Claude, Cursor, v.v).</li>
+        </ul>
+      </div>
+      <div class="cons" style="margin-top: 10px;">
+        <h4 style="margin-bottom: 5px; color: var(--color-error)">Nhược điểm</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+          <li>Tốn thời gian setup và bảo trì một server MCP riêng chạy ngầm.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="middleware" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Middleware API Service</h3>
+      <p>Xây một Backend API RESTful (ví dụ NodeJS/Python) làm trung gian bọc Nano Banana API. Cấu trúc chuẩn hóa Game Asset. Agent chỉ gọi HTTP Rest thẳng vào Backend này.</p>
+    </div>
+    <div class="pros-cons" style="margin-top: 10px; margin-left: 20px;">
+      <div class="pros">
+        <h4 style="margin-bottom: 5px; color: var(--color-success)">Ưu điểm</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+          <li>Có thể gắn thêm database lưu trữ lịch sử, và sau này dễ bổ sung thêm Stability AI / Midjourney ẩn sau lớp Backend.</li>
+        </ul>
+      </div>
+      <div class="cons" style="margin-top: 10px;">
+        <h4 style="margin-bottom: 5px; color: var(--color-error)">Nhược điểm</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+          <li>Rườm rà nhất, phải làm cả server Web Backend phức tạp.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
