@@ -1,0 +1,10 @@
+{
+  "project_name": "SpaceFlapper",
+  "idea": "Flappy Bird clone with a spaceship dodging asteroids",
+  "genre": "Endless Flapper / Obstacle Avoidance",
+  "gameplay_mechanic": "Tap to thrust upward, release to fall with gravity (classic Flappy Bird mechanic). Spaceship navigates through gaps between asteroid obstacles scrolling from right to left.",
+  "visual_theme": "Cute Sci-fi Cartoon — vibrant colors, playful spaceship design, colorful asteroids, starfield background",
+  "cta_trigger_condition": "Timer-based: CTA End Screen appears after 15 seconds of gameplay regardless of win/lose state",
+  "controls": "Single tap / touch",
+  "max_loop_duration_seconds": 15
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Playable Ad - SpaceFlapper</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var GameConfig = {
+            speed: 250,
+            gravity: 1200,
+            jumpVelocity: -450,
+            pipeSpawnRate: 1500, // ms
+            cta_url: 'https://play.google.com/store/apps/details?id=com.puzzle.trippy.glide',
+            maxDuration: 15000 // 15 seconds limit per GDD
+        };
+
+        var ASSET_PATHS = {
+            'bg': 'assets/bg.webp',
+            'player': 'assets/player.webp',
+            'asteroid': 'assets/asteroid.webp',
+            'item': 'assets/item.webp',
+            'cta_btn': 'assets/cta_btn.webp',
+            'laser': 'assets/laser.webp',
+            'enemy': 'assets/enemy.webp',
+            'explosion': 'assets/explosion.webp'
+        };
+
+        var ASSET_B64 = {}; // Left empty for DEV. Populated by Phase 5 PyPackager.
+
+        class BootScene extends Phaser.Scene {
+            constructor() { super('BootScene'); }
+            preload() {
+                let useBase64 = Object.keys(ASSET_B64).length > 0;
+                const keys = Object.keys(ASSET_PATHS);
+
+                if (useBase64) {
+                    // Base64 Injection Packaged Mode
+                    let loadedCount = 0;
+                    for (let key in ASSET_PATHS) {
+                        let img = new Image();
+                        img.onload = () => {
+                            this.textures.addImage(key, img);
+                            loadedCount++;
+                            if (loadedCount === keys.length) {
+                                this.scene.start('PlayScene');
+                            }
+                        };
+                        img.src = ASSET_B64[key];
+                    }
+                } else {
+                    // DEV Mode
+                    for (let key in ASSET_PATHS) {
+                        this.load.image(key, ASSET_PATHS[key]);
+                    }
+                }
+            }
+            create() {
+                if (Object.keys(ASSET_B64).length === 0) {
+                    this.scene.start('PlayScene');
+                }
+            }
+        }
+
+        class PlayScene extends Phaser.Scene {
+            constructor() { super('PlayScene'); }
+            create() {
+                const sw = this.cameras.main.width;
+                const sh = this.cameras.main.height;
+
+                this.bg = this.add.tileSprite(sw / 2, sh / 2, sw, sh, 'bg');
+                // Scale BG to cover dynamically
+                this.bg.setDisplaySize(sw, sh);
+
+                this.player = this.physics.add.sprite(sw * 0.2, sh * 0.5, 'player');
+                this.player.body.setGravityY(GameConfig.gravity);
+                this.player.body.setAllowGravity(false); // Suspend gravity until first tap
+
+                // Constrain visual size for a typical ship
+                const pRatio = this.player.height / this.player.width;
+                this.player.displayWidth = 60;
+                this.player.displayHeight = 60 * pRatio;
+                this.player.body.setSize(this.player.width * 0.7, this.player.height * 0.7); // Shrink hitbox slightly
+
+                this.obstacles = this.physics.add.group();
+                this.items = this.physics.add.group();
+                this.lasers = this.physics.add.group();
+                this.enemies = this.physics.add.group();
+
+                this.lastFired = 0;
+                this.isGameOver = false;
+                this.gameStarted = false;
+
+                this.input.on('pointerdown', this.flap, this);
+
+                this.physics.add.collider(this.player, this.obstacles, this.triggerEndCard, null, this);
+                this.physics.add.collider(this.player, this.enemies, this.triggerEndCard, null, this);
+                this.physics.add.overlap(this.player, this.items, this.collectItem, null, this);
+                this.physics.add.overlap(this.lasers, this.enemies, this.hitEnemy, null, this);
+                this.physics.add.overlap(this.lasers, this.obstacles, this.hitObstacle, null, this);
+            }
+
+            flap() {
+                if (this.isGameOver) return;
+
+                if (!this.gameStarted) {
+                    this.gameStarted = true;
+                    this.player.body.setAllowGravity(true);
+
+                    this.spawnTimer = this.time.addEvent({
+                        delay: GameConfig.pipeSpawnRate,
+                        callback: this.spawnObstaclePair,
+                        callbackScope: this,
+                        loop: true
+                    });
+
+                    this.gameTimer = this.time.addEvent({
+                        delay: GameConfig.maxDuration,
+                        callback: this.triggerEndCard,
+                        callbackScope: this
+                    });
+                }
+
+                this.player.setVelocityY(GameConfig.jumpVelocity);
+                this.tweens.add({
+                    targets: this.player,
+                    angle: -20,
+                    duration: 100,
+                    yoyo: true
+                });
+            }
+
+            spawnObstaclePair() {
+                if (this.isGameOver) return;
+                const sw = this.cameras.main.width;
+                const sh = this.cameras.main.height;
+
+                const gapSize = 250;
+                const gapY = Phaser.Math.Between(sh * 0.3, sh * 0.7);
+
+                // Top Asteroid Pipeline (flipped)
+                const topAst = this.obstacles.create(sw + 100, gapY - gapSize / 2 - 200, 'asteroid');
+                topAst.flipY = true;
+                topAst.setDisplaySize(120, 400);
+                topAst.body.allowGravity = false;
+                topAst.body.immovable = true;
+                topAst.setVelocityX(-GameConfig.speed);
+                topAst.hp = 5;
+
+                // Bot Asteroid Pipeline
+                const botAst = this.obstacles.create(sw + 100, gapY + gapSize / 2 + 200, 'asteroid');
+                botAst.setDisplaySize(120, 400);
+                botAst.body.allowGravity = false;
+                botAst.body.immovable = true;
+                botAst.setVelocityX(-GameConfig.speed);
+                botAst.hp = 5;
+
+                // Spawn Enemy or Item in the gap
+                if (Math.random() < 0.5) {
+                    const enemy = this.enemies.create(sw + 100, gapY, 'enemy');
+                    enemy.displayWidth = 60;
+                    enemy.displayHeight = 60 * (enemy.height / enemy.width);
+                    enemy.body.allowGravity = false;
+                    enemy.setVelocityX(-GameConfig.speed);
+                    enemy.hp = 2;
+                    enemy.body.setSize(enemy.width * 0.8, enemy.height * 0.8);
+                } else if (Math.random() < 0.7) {
+                    const item = this.items.create(sw + 100, gapY, 'item');
+                    // Retain aspect ratio
+                    const iRatio = item.height / item.width;
+                    item.displayWidth = 50;
+                    item.displayHeight = 50 * iRatio;
+                    item.body.allowGravity = false;
+                    item.setVelocityX(-GameConfig.speed);
+
+                    this.tweens.add({
+                        targets: item,
+                        y: gapY - 20,
+                        duration: 500,
+                        yoyo: true,
+                        repeat: -1
+                    });
+                }
+            }
+
+            collectItem(player, item) {
+                item.destroy();
+                // Flash feedback
+                const flash = this.add.circle(this.player.x, this.player.y, 40, 0xffffff, 0.8);
+                this.tweens.add({
+                    targets: flash,
+                    alpha: 0,
+                    duration: 200,
+                    onComplete: () => flash.destroy()
+                });
+            }
+
+            fireLaser() {
+                const laser = this.lasers.create(this.player.x + 30, this.player.y, 'laser');
+                laser.displayWidth = 50;
+                laser.displayHeight = 50 * (laser.height / laser.width);
+                laser.body.allowGravity = false;
+                laser.setVelocityX(1000);
+            }
+
+            hitEnemy(laser, enemy) {
+                laser.destroy();
+                enemy.hp--;
+                
+                enemy.setTintFill(0xffffff);
+                this.time.delayedCall(50, () => { if(enemy.active) enemy.clearTint(); });
+                
+                if (enemy.hp <= 0) {
+                    const explosion = this.add.sprite(enemy.x, enemy.y, 'explosion');
+                    explosion.displayWidth = 80;
+                    explosion.displayHeight = 80 * (explosion.height / explosion.width);
+                    this.tweens.add({
+                        targets: explosion,
+                        alpha: 0,
+                        scale: 1.5,
+                        duration: 300,
+                        onComplete: () => explosion.destroy()
+                    });
+                    this.cameras.main.shake(50, 0.01);
+                    enemy.destroy();
+                }
+            }
+            
+            hitObstacle(laser, obstacle) {
+                laser.destroy();
+                obstacle.hp--;
+                
+                obstacle.setTintFill(0xffffff);
+                this.time.delayedCall(50, () => { if(obstacle.active) obstacle.clearTint(); });
+                
+                if (obstacle.hp <= 0) {
+                    const explosion = this.add.sprite(obstacle.x, obstacle.y, 'explosion');
+                    explosion.displayWidth = 150;
+                    explosion.displayHeight = 150 * (explosion.height / explosion.width);
+                    this.tweens.add({
+                        targets: explosion,
+                        alpha: 0,
+                        scale: 2.5,
+                        duration: 500,
+                        onComplete: () => explosion.destroy()
+                    });
+                    this.cameras.main.shake(100, 0.02);
+                    obstacle.destroy();
+                } else {
+                    const spark = this.add.circle(laser.x, laser.y, 15, 0xffaa00);
+                    this.tweens.add({
+                        targets: spark, alpha: 0, scale: 2, duration: 100, onComplete: () => spark.destroy()
+                    });
+                }
+            }
+
+            update() {
+                if (this.isGameOver) return;
+                if (this.gameStarted) {
+                    this.bg.tilePositionX += 1;
+                    
+                    if (this.time.now > this.lastFired) {
+                        this.fireLaser();
+                        this.lastFired = this.time.now + 300;
+                    }
+                }
+
+                // Enforce vertical bounds
+                const sh = this.cameras.main.height;
+                if (this.player.y >= sh || this.player.y <= 0) {
+                    this.triggerEndCard();
+                }
+            }
+
+            triggerEndCard() {
+                if (this.isGameOver) return;
+                this.isGameOver = true;
+                this.physics.pause();
+                this.spawnTimer.remove();
+
+                setTimeout(() => {
+                    this.scene.start('EndScene');
+                }, 300); // Tiny dramatic pause
+            }
+        }
+
+        class EndScene extends Phaser.Scene {
+            constructor() { super('EndScene'); }
+            create() {
+                const sw = this.cameras.main.width;
+                const sh = this.cameras.main.height;
+
+                // Modals and dim
+                this.add.rectangle(0, 0, sw, sh, 0x000000, 0.7).setOrigin(0, 0);
+
+                const btn = this.add.image(sw / 2, sh / 2, 'cta_btn').setInteractive({ useHandCursor: true });
+                const btnRatio = btn.height / btn.width;
+                btn.displayWidth = 250;
+                btn.displayHeight = 250 * btnRatio;
+
+                this.tweens.add({
+                    targets: btn,
+                    scaleX: 1.05,
+                    scaleY: 1.05,
+                    duration: 500,
+                    yoyo: true,
+                    repeat: -1
+                });
+
+                btn.on('pointerdown', () => {
+                    window.open(GameConfig.cta_url, '_blank');
+                });
+            }
+        }
+
+        const config = {
+            type: Phaser.AUTO,
+            scale: {
+                mode: Phaser.Scale.FIT,
+                parent: 'phaser-example',
+                width: 480, // Portrait logic optimized for mobile ads
+                height: 800
+            },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 0 },
+                    debug: false
+                }
+            },
+            scene: [BootScene, PlayScene, EndScene]
+        };
+
+        const game = new Phaser.Game(config);
+    </script>
+</body>
+
+</html>
