@@ -1,9 +1,17 @@
-# Semi-Realistic Style DNA Profile
+# Style DNA Profile: Semi-Realistic
 
-In the style of premium semi-realistic 2D game environment art features balanced compositions with strong one-point perspective, crisp silhouettes without heavy line art, and clean volumetric lighting. The color palette utilizes vibrant, saturated focal colors against cohesive, mood-enhancing glowing lights (such as god rays, neon, or camera flashes) with high lighting contrast. Shading relies on soft, painterly blending with smooth textures, avoiding hyper-realistic visual noise while maintaining clear material definition, resulting in a highly polished, commercially appealing, and atmospheric aesthetic.
+## Visual Anchor Evaluation
+**1. Line art & Shapes:**
+Clean, subtle line art that avoids heavy dark outlines. Edges and silhouettes are primarily defined by color contrast and careful shading rather than ink lines. A balanced mix of crisp, deliberate geometric structures (architecture, interiors, floor grids) and soft, flowing organic shapes (foliage, fabrics, natural elements).
 
-## Detailed Parameters
-- **Line art & Shapes:** Crisp, well-defined silhouettes. No prominent dark outlines. Strong use of structured depth and one-point perspective to establish volume. Balances rigid geometric flow (tech, architecture) with soft organic forms.
-- **Color Palette:** Mood-driven and highly vibrant. High contrast between central focal points and the environment. Masters the use of intense light sources (lens flares, neon signs, sunbeams) to drive the scene's temperature.
-- **Shading & Texture:** Soft, painterly blending over 3D-like volume. No flat cel-shading. Emphasizes smooth finishes and readable surfaces over granular, hyper-realistic noise. Strong ambient occlusion and bloom effects.
-- **Concept Vibe:** High-end visual novel or premium casual game background. Very polished, commercially appealing, immersive, and highly atmospheric, capable of adapting to diverse themes (tranquil nature, nightlife, sleek sci-fi, or elegant events).
+**2. Color Palette:**
+Harmonious and pleasant tones with a strong emphasis on warm, glowing lighting (sunlight filtering, warm interior chandeliers). Contrast is moderate and inviting, utilizing luminous, lifted shadows often tinted with ambient environmental colors (soft blues, purples) instead of harsh blacks. The mood is serene, vibrant yet distinctly soft.
+
+**3. Shading & Texture:**
+Predominantly soft, painterly blending combined with precise, crisp highlights to define forms and depth. Material representation is stylized and idealized—recognizable (shiny marble, glass, leaves, cloth) but simplified, favoring smooth, clean surfaces over noisy, gritty, or highly detailed photorealistic textures.
+
+**4. Concept Vibe:**
+A pristine, atmospheric, and beautifully lit "idealized reality". The aesthetic closely mirrors high-end modern anime backgrounds or premium mobile game/visual novel environments. It conveys tranquility, cleanliness, and an inviting spatial depth.
+
+## Style Modifier (Prompt Injection)
+"In the style of high-quality premium anime background art and modern visual novels, featuring clean, subtle edge definition without heavy black outlines. Use a harmonious pastel color palette with warm, glowing ambient lighting, luminous tinted shadows, and inviting contrast. Employ soft, painterly shading with crisp highlights to render smooth, idealized materials lacking detailed grit or noise. The overall atmosphere should be pristine, serene, and beautifully illuminated, capturing an idealized yet grounded realistic environment."
