@@ -19,22 +19,22 @@ graph TD
     classDef postProd fill:#ffab91,stroke:#e53935,stroke-width:2px;
 
     %% Phases
-    subgraph Phase 1: Tiền Kỳ (Pre-Production)
+    subgraph phase1 ["Phase 1: Tiền Kỳ (Pre-Production)"]
         GD[game-designer<br>Master GDD & UI Wireframes]:::preProd
     end
 
-    subgraph Phase 2: Nạp Dữ Liệu RAG (Data Ingestion)
+    subgraph phase2 ["Phase 2: Nạp Dữ Liệu RAG (Data Ingestion)"]
         GACf[game-art-configurator<br>Update Global DNA]:::dataIngest
         GAC[game-art-compiler<br>Compile Local Style DNA]:::dataIngest
     end
 
-    subgraph Phase 3: Sản Xuất (Production)
+    subgraph phase3 ["Phase 3: Sản Xuất (Production)"]
         GAO[game-art-orchestrator<br>Gen Game Assets]:::prodArt
         GAP[game-audio-prompter<br>Gen Audio Prompts]:::prodAudio
         GDU[game-dev-unity<br>Unity C# Architecture]:::prodDev
     end
 
-    subgraph Phase 4: Hậu Kỳ (Post-Production)
+    subgraph phase4 ["Phase 4: Hậu Kỳ (Post-Production)"]
         ASO[game-aso-orchestrator<br>Gen ASO Assets]:::postProd
         GPO[game-playable-orchestrator<br>Build Playable Ad HTML5]:::postProd
     end
