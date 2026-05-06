@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Playable Ad</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+        canvas { display: block; width: 100vw; height: 100vh; object-fit: contain; }
+    </style>
+</head>
+<body>
+    <!-- INJECT: BASE64_MANIFEST -->
+    <script id="assets_manifest">
+        // The packager will inject window.ASSETS_MANIFEST = { images: {...}, audio: {...} } here.
+    </script>
+    
+    <script>
+        class BootScene extends Phaser.Scene {
+            constructor() { super('BootScene'); }
+            preload() {
+                if (window.ASSETS_MANIFEST) {
+                    const m = window.ASSETS_MANIFEST;
+                    if (m.images) {
+                        for (let key in m.images) {
+                            this.textures.addBase64(key, m.images[key]);
+                        }
+                    }
+                    // Audio Data URIs in Phaser require the load.audio with data URI payload
+                    if (m.audio) {
+                        for (let key in m.audio) {
+                            this.load.audio(key, m.audio[key]);
+                        }
+                    }
+                }
+            }
+            create() {
+                // Wait for Base64 textures to initialize if necessary, then start.
+                this.time.delayedCall(50, () => {
+                    this.scene.start('PlayScene');
+                });
+            }
+        }
+    </script>
+
+    <!-- INJECT: LOGIC_HOOK_JS -->
+    <script id="logic_hook">
+        // The packager will inject the Logic_Component.js containing class PlayScene and class EndScene here.
+    </script>
+
+    <script>
+        window.addEventListener('load', () => {
+            const config = {
+                type: Phaser.AUTO,
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    autoCenter: Phaser.Scale.CENTER_BOTH,
+                    width: window.GAME_WIDTH || 1080,
+                    height: window.GAME_HEIGHT || 1920
+                },
+                physics: {
+                    default: 'arcade',
+                    arcade: { gravity: { y: window.GAME_GRAVITY || 0 }, debug: false }
+                },
+                scene: [BootScene, typeof PlayScene !== 'undefined' ? PlayScene : null, typeof EndScene !== 'undefined' ? EndScene : null].filter(s => s)
+            };
+            new Phaser.Game(config);
+        });
+    </script>
+</body>
+</html>
