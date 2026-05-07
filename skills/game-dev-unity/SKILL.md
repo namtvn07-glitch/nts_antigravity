@@ -18,9 +18,10 @@ When you receive a request related to creating Unity features, the first step is
 
 **IMMEDIATE ACTION REQUIRED upon receiving any new task, documentation, or project information:**
 1. **Trigger `/plan`**: You MUST immediately invoke the `/plan` workflow to handle the planning phase. It will automatically generate the `task.md` and `implementation_plan.md` artifacts. Wait for the user to approve the plan.
-2. **Trigger `/execute`**: Once the plan is approved, use the `/execute` workflow to implement the code layer by layer (Data -> Logic -> UI). Do NOT code without executing this workflow.
-3. **Trigger `/debug` & `/review`**: If you encounter compilation or runtime errors during execution, use the `/debug` workflow. Before claiming the task is complete, use the `/review` workflow to verify against Unity C# conventions.
-4. **Trigger `/finish`**: Once all tests pass and the user confirms, run the `/finish` workflow to extract Unity-specific learnings and close the task.
+2. **Export Implementation Plan**: After the plan is approved, **ALWAYS copy `implementation_plan.md` to `GDD/implementation_plan.md` inside the project workspace** so the entire team can track it alongside GDD docs. Keep it in sync with every major status change (update checkboxes as phases complete).
+3. **Trigger `/execute`**: Once the plan is approved, use the `/execute` workflow to implement the code layer by layer (Data -> Logic -> UI). Do NOT code without executing this workflow.
+4. **Trigger `/debug` & `/review`**: If you encounter compilation or runtime errors during execution, use the `/debug` workflow. Before claiming the task is complete, use the `/review` workflow to verify against Unity C# conventions.
+5. **Trigger `/finish`**: Once all tests pass and the user confirms, run the `/finish` workflow to extract Unity-specific learnings and close the task.
 
 ## Sub-Skills Routing
 

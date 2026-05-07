@@ -23,9 +23,12 @@ The AI system (Antigravity) will prioritize reading this file in combination wit
   - Limit `Instantiate/Destroy` in the gameplay loop; use Object Pooling.
 
 ## 3. Learned Patterns & Gotchas
-> *This section will be automatically updated by the `/finish` command when new lessons are discovered during work.*
 
-- (Example) Always unsubscribe from events (`-=`) in `OnDisable` or `OnDestroy` to prevent memory leaks.
-- **[Gotcha] Audio Muting & Pausing:** Avoid using `Time.timeScale = 0f` or `AudioListener.pause = true` just to mute background music or pause a game loop, as it stops UI animations, coroutines, and newly generated audio playback. Use event-driven direct muting (`audioSource.mute = true`) and `WaitForSecondsRealtime` (or `Time.unscaledDeltaTime`) instead.
-- **[Gotcha] UI Button Listeners in Editor Scripts:** Do not use `button.onClick.AddListener(() => ...)` dynamically within Editor setup scripts. Lambda listeners do not serialize into the scene file, so the buttons will be broken at runtime. Instead, assign the `Button` references to `[SerializeField]` properties using `SerializedObject` and call `AddListener` in `Awake/Start()` of a MonoBehaviour.
-- **[Gotcha] Component State Bypass:** When an object uses a wrapper/controller script (e.g. `MonsterController`) to manage inner component logic (e.g. `QuantizedAudioPlayer`) and state flags (`isSinging`), UI scripts MUST call methods on the wrapper controller, NEVER directly on the nested component. Direct component calls bypass the parent's state management, causing event-driven game logic dependent on those states to silently fail.
+Global patterns that apply across the entire project (regardless of domain) should be placed here.
+
+For specific domains (like Unity Development, Game Design, 2D Art, UI, etc.), the rules and gotchas are stored in the `.agents/learned/` folder:
+- **`unity-dev.md`**: Unity specific gotchas, physics, audio, memory management.
+- **`game-designer.md`**: Game design rules.
+- **`art-2d.md`**: Art generation, formatting, sizing.
+
+*Note: The `/finish` workflow will automatically extract new patterns and place them in the correct file according to this structure.*
