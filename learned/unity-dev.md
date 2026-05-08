@@ -6,6 +6,7 @@
 - **Event-Driven Architecture & UI Decoupling:** Use `Action<T>` to decouple systems. UI should only act as a listener (e.g., `HUDCoinDisplay` listening to `EconomyManager`) and never contain game logic. Be extremely careful with initialization order: ensure subscribers (`Start` or `OnEnable`) register to events at the correct lifecycle phase so they don't miss events fired by publishers in `Awake` or `Start`.
 - **Memory Leaks from Events:** Always remember to unsubscribe (`-=`) from C# events in `OnDisable` or `OnDestroy` to prevent memory leaks and ghost calls when objects are destroyed or scenes are reloaded.
 - **[Gotcha] Component State Bypass:** When an object uses a wrapper/controller script (e.g. `MonsterController`) to manage inner component logic (e.g. `QuantizedAudioPlayer`) and state flags (`isSinging`), UI scripts MUST call methods on the wrapper controller, NEVER directly on the nested component. Direct component calls bypass the parent's state management, causing event-driven game logic dependent on those states to silently fail.
+- **[Gotcha] ScriptableObjects and Resources.Load:** When attempting to dynamically load ScriptableObjects (or any asset) at runtime using `Resources.Load<T>("Path")`, the asset MUST be placed inside a folder named `Resources` (e.g., `Assets/Resources/Data/...`). If placed elsewhere (e.g. `Assets/Scripts/Data/`), `Resources.Load` will fail and return null, which can break fallback loading logic.
 
 ## Gameplay & Physics
 
