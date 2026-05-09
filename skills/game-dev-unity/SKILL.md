@@ -13,7 +13,7 @@ BEFORE WRITING ANY C# CODE OR MODIFYING UNITY SYSTEMS, YOU MUST:
 1. **Read Learned File:** Use `view_file` on `.agents/learned/unity-dev.md` to load project-specific rules.
 2. **Verify Prerequisites:** Run `python .agents/scripts/check_prerequisites.py game-dev-unity <project_path>` — if FAIL, request GDD from game-designer first.
 3. **Query Context (RAG):** Run `python .agents/scripts/build_knowledge_graph.py --query "<task_keywords>"` and read `=== QUERY RESULTS ===` for architectural constraints.
-4. **Load Sub-Skills:** Use `view_file` tool to read `.agents/skills/game-dev-unity/sub-skill/unity-rules.md`.
+4. **Load Sub-Skills:** Use `view_file` tool to read `.agents/skills/game-dev-unity/sub-skill/DevArchitecture.md`.
 5. **Declare Result:** Explicitly state `"PRE-CHECK PASSED"` and list which rules from sub-skills and GraphRAG will influence your implementation.
 
 Failure to follow these steps will result in code rejection and a severe penalty.
@@ -27,7 +27,7 @@ Upon receiving a request, evaluate its complexity and declare your track in your
   - *Skip:* No `/plan` required.
 
 - **Feature Track (Moderate Features):** For components, UI panels, or mechanics (10-100 lines, 1-3 files).
-  - *Workflow:* Pre-check $\rightarrow$ Read `unity-rules.md` $\rightarrow$ Write Code $\rightarrow$ **Verify via MCP Play Mode** $\rightarrow$ Trigger `/finish`.
+  - *Workflow:* Pre-check $\rightarrow$ Read `DevArchitecture.md` $\rightarrow$ Write Code $\rightarrow$ **Verify via MCP Play Mode** $\rightarrow$ Trigger `/finish`.
   - *Skip:* No `/plan` required.
 
 - **Architecture Track (New Systems & Refactoring):** For complex structural changes, new core systems, or 3+ files.
