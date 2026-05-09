@@ -1,0 +1,1626 @@
+{
+    "directed": false,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "type": "H2_Category",
+            "label": "1. Think Before Coding",
+            "source_file": "DevArchitechture.md",
+            "community": 0,
+            "id": "DevArchitechture.md::1. Think Before Coding"
+        },
+        {
+            "type": "H2_Category",
+            "label": "2. Simplicity First",
+            "source_file": "DevArchitechture.md",
+            "community": 1,
+            "id": "DevArchitechture.md::2. Simplicity First"
+        },
+        {
+            "type": "H2_Category",
+            "label": "3. Surgical Changes",
+            "source_file": "DevArchitechture.md",
+            "community": 2,
+            "id": "DevArchitechture.md::3. Surgical Changes"
+        },
+        {
+            "type": "H2_Category",
+            "label": "4. Goal-Driven Execution",
+            "source_file": "DevArchitechture.md",
+            "community": 3,
+            "id": "DevArchitechture.md::4. Goal-Driven Execution"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Project Specific Rules: Unity MCP",
+            "source_file": "GEMINI.md",
+            "community": 4,
+            "id": "GEMINI.md::Project Specific Rules: Unity MCP"
+        },
+        {
+            "type": "H2_Category",
+            "label": "1. Project Architecture",
+            "source_file": "GEMINI.md",
+            "community": 4,
+            "id": "GEMINI.md::1. Project Architecture"
+        },
+        {
+            "type": "H2_Category",
+            "label": "2. Code Conventions",
+            "source_file": "GEMINI.md",
+            "community": 4,
+            "id": "GEMINI.md::2. Code Conventions"
+        },
+        {
+            "type": "Technical",
+            "label": "PascalCase",
+            "source_file": "GEMINI.md",
+            "community": 4,
+            "id": "tech::PascalCase"
+        },
+        {
+            "type": "Technical",
+            "label": "GetComponent",
+            "source_file": "GEMINI.md",
+            "community": 4,
+            "id": "tech::GetComponent"
+        },
+        {
+            "type": "H2_Category",
+            "label": "3. Learned Patterns & Gotchas",
+            "source_file": "GEMINI.md",
+            "community": 4,
+            "id": "GEMINI.md::3. Learned Patterns & Gotchas"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Workspace Rules - RAG, Embedding, and Few-Shot Integration",
+            "source_file": "SystemArchitecture.md",
+            "community": 5,
+            "id": "SystemArchitecture.md::Workspace Rules - RAG, Embedding, and Few-Shot Integration"
+        },
+        {
+            "type": "H2_Category",
+            "label": "1. RAG (Retrieval-Augmented Generation) Technical Standards",
+            "source_file": "SystemArchitecture.md",
+            "community": 5,
+            "id": "SystemArchitecture.md::1. RAG (Retrieval-Augmented Generation) Technical Standards"
+        },
+        {
+            "type": "Technical",
+            "label": "Global_DNA.md",
+            "source_file": "SystemArchitecture.md",
+            "community": 5,
+            "id": "tech::Global_DNA.md"
+        },
+        {
+            "type": "H2_Category",
+            "label": "2. Data Embedding & Semantic Search Strategy",
+            "source_file": "SystemArchitecture.md",
+            "community": 5,
+            "id": "SystemArchitecture.md::2. Data Embedding & Semantic Search Strategy"
+        },
+        {
+            "type": "H2_Category",
+            "label": "3. Few-Shot Prompting Execution",
+            "source_file": "SystemArchitecture.md",
+            "community": 5,
+            "id": "SystemArchitecture.md::3. Few-Shot Prompting Execution"
+        },
+        {
+            "type": "H1_Category",
+            "label": "2D Art & Asset Generation Learnings",
+            "source_file": "art-2d.md",
+            "community": 6,
+            "id": "art-2d.md::2D Art & Asset Generation Learnings"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Gotchas",
+            "source_file": "art-2d.md",
+            "community": 6,
+            "id": "art-2d.md::Gotchas"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Best Practices",
+            "source_file": "art-2d.md",
+            "community": 6,
+            "id": "art-2d.md::Best Practices"
+        },
+        {
+            "type": "Technical",
+            "label": "Image.Resampling.LANCZOS",
+            "source_file": "art-generation-patterns.md",
+            "community": 6,
+            "id": "tech::Image.Resampling.LANCZOS"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Game Designer Learnings & Patterns",
+            "source_file": "game-designer.md",
+            "community": 7,
+            "id": "game-designer.md::Game Designer Learnings & Patterns"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Data Sync",
+            "source_file": "game-designer.md",
+            "community": 7,
+            "id": "game-designer.md::Data Sync"
+        },
+        {
+            "type": "H1_Category",
+            "label": "GraphRAG Architecture and Context Retrieval",
+            "source_file": "graphrag-architecture.md",
+            "community": 8,
+            "id": "graphrag-architecture.md::GraphRAG Architecture and Context Retrieval"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Pre-computed Context (Zero Latency Strategy)",
+            "source_file": "graphrag-architecture.md",
+            "community": 8,
+            "id": "graphrag-architecture.md::Pre-computed Context (Zero Latency Strategy)"
+        },
+        {
+            "type": "Technical",
+            "label": "SentenceTransformer",
+            "source_file": "graphrag-architecture.md",
+            "community": 8,
+            "id": "tech::SentenceTransformer"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Developer Rules",
+            "source_file": "graphrag-architecture.md",
+            "community": 8,
+            "id": "graphrag-architecture.md::Developer Rules"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Unity Dev Learnings & Patterns",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Unity Dev Learnings & Patterns"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Code Architecture & Patterns",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Code Architecture & Patterns"
+        },
+        {
+            "type": "Pattern",
+            "label": "Prefab Variants for Data-Driven Spawning",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Prefab Variants for Data-Driven Spawning"
+        },
+        {
+            "type": "Gotcha",
+            "label": "Component State Bypass",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Component State Bypass"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Gameplay & Physics",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Gameplay & Physics"
+        },
+        {
+            "type": "Gotcha",
+            "label": "Physics2D with Orthographic Camera",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Physics2D with Orthographic Camera"
+        },
+        {
+            "type": "Gotcha",
+            "label": "Raycasts Inside Colliders",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Raycasts Inside Colliders"
+        },
+        {
+            "type": "Pattern",
+            "label": "Puzzle Mechanics - Hazard Neutralization",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Puzzle Mechanics - Hazard Neutralization"
+        },
+        {
+            "type": "Gotcha",
+            "label": "Missing Tags on Prefabs",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Missing Tags on Prefabs"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Audio",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Audio"
+        },
+        {
+            "type": "Gotcha",
+            "label": "Audio Muting & Pausing",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Audio Muting & Pausing"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Editor & Tooling",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::Editor & Tooling"
+        },
+        {
+            "type": "Gotcha",
+            "label": "UI Button Listeners in Editor Scripts",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::UI Button Listeners in Editor Scripts"
+        },
+        {
+            "type": "Gotcha",
+            "label": "SerializedObjectNotCreatableException",
+            "source_file": "unity-dev.md",
+            "community": 9,
+            "id": "unity-dev.md::SerializedObjectNotCreatableException"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Art Generation Patterns",
+            "source_file": "art-generation-patterns.md",
+            "community": 10,
+            "id": "art-generation-patterns.md::Art Generation Patterns"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Gotcha: Magenta Background Removal \u2014 Basic BFS Fails on Holes",
+            "source_file": "art-generation-patterns.md",
+            "community": 10,
+            "id": "art-generation-patterns.md::Gotcha: Magenta Background Removal \u2014 Basic BFS Fails on Holes"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Correct: scan all pixels for BFS seeds",
+            "source_file": "art-generation-patterns.md",
+            "community": 6,
+            "id": "art-generation-patterns.md::Correct: scan all pixels for BFS seeds"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Gotcha: Crop Fails When Background Not Pre-Removed",
+            "source_file": "art-generation-patterns.md",
+            "community": 6,
+            "id": "art-generation-patterns.md::Gotcha: Crop Fails When Background Not Pre-Removed"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Rule: Mobile VRAM Optimization \u2014 Hard Size Limits",
+            "source_file": "art-generation-patterns.md",
+            "community": 6,
+            "id": "art-generation-patterns.md::Rule: Mobile VRAM Optimization \u2014 Hard Size Limits"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Rule: Single Asset per Generation",
+            "source_file": "art-generation-patterns.md",
+            "community": 6,
+            "id": "art-generation-patterns.md::Rule: Single Asset per Generation"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Rule: Generation Background Constraint",
+            "source_file": "art-generation-patterns.md",
+            "community": 6,
+            "id": "art-generation-patterns.md::Rule: Generation Background Constraint"
+        },
+        {
+            "type": "H1_Category",
+            "label": "UI Dialog System \u2014 Architecture Reference",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference"
+        },
+        {
+            "type": "Technical",
+            "label": "Dialog.cs",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "tech::Dialog.cs"
+        },
+        {
+            "type": "Technical",
+            "label": "MenuManager.cs",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "tech::MenuManager.cs"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Pattern: Generic Dialog&lt;T&gt; with Static Lifecycle",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "ui-dialog-patterns.md::Pattern: Generic Dialog&lt;T&gt; with Static Lifecycle"
+        },
+        {
+            "type": "Technical",
+            "label": "Instance",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "tech::Instance"
+        },
+        {
+            "type": "Technical",
+            "label": "OnDestroy",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "tech::OnDestroy"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Pattern: MenuManager with ObjectPool&lt;Dialog&gt;",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "ui-dialog-patterns.md::Pattern: MenuManager with ObjectPool&lt;Dialog&gt;"
+        },
+        {
+            "type": "Technical",
+            "label": "Type",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "tech::Type"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Critical Rules",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "ui-dialog-patterns.md::Critical Rules"
+        },
+        {
+            "type": "Technical",
+            "label": "RenderMode.ScreenSpaceCamera",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "tech::RenderMode.ScreenSpaceCamera"
+        },
+        {
+            "type": "Technical",
+            "label": "OnHideComplete",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "tech::OnHideComplete"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Integration Contract",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "ui-dialog-patterns.md::Integration Contract"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Gotcha: Instance null after animation",
+            "source_file": "ui-dialog-patterns.md",
+            "community": 11,
+            "id": "ui-dialog-patterns.md::Gotcha: Instance null after animation"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Game Design Document Contracts",
+            "source_file": "game-design-contracts.md",
+            "community": 12,
+            "id": "game-design-contracts.md::Game Design Document Contracts"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Contract: GDD \u2192 game-audio-prompter",
+            "source_file": "game-design-contracts.md",
+            "community": 12,
+            "id": "game-design-contracts.md::Contract: GDD \u2192 game-audio-prompter"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Contract: GDD \u2192 game-dev-unity",
+            "source_file": "game-design-contracts.md",
+            "community": 12,
+            "id": "game-design-contracts.md::Contract: GDD \u2192 game-dev-unity"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Rule: Data Sync \u2014 GDD \u2194 Dev Enums",
+            "source_file": "game-design-contracts.md",
+            "community": 12,
+            "id": "game-design-contracts.md::Rule: Data Sync \u2014 GDD \u2194 Dev Enums"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Rule: Prerequisite Order",
+            "source_file": "game-design-contracts.md",
+            "community": 12,
+            "id": "game-design-contracts.md::Rule: Prerequisite Order"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Animation Module - Memory Optimization & Best Practices",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng",
+            "source_file": "OPTIMIZATION.md",
+            "community": 13,
+            "id": "OPTIMIZATION.md::\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng"
+        },
+        {
+            "type": "H3_Category",
+            "label": "1. DOTween Recyclable System",
+            "source_file": "OPTIMIZATION.md",
+            "community": 13,
+            "id": "OPTIMIZATION.md::1. DOTween Recyclable System"
+        },
+        {
+            "type": "H3_Category",
+            "label": "2. Sequence Auto-Kill",
+            "source_file": "OPTIMIZATION.md",
+            "community": 13,
+            "id": "OPTIMIZATION.md::2. Sequence Auto-Kill"
+        },
+        {
+            "type": "H3_Category",
+            "label": "3. Proper Tween Cleanup",
+            "source_file": "OPTIMIZATION.md",
+            "community": 13,
+            "id": "OPTIMIZATION.md::3. Proper Tween Cleanup"
+        },
+        {
+            "type": "H3_Category",
+            "label": "4. Event Cleanup",
+            "source_file": "OPTIMIZATION.md",
+            "community": 13,
+            "id": "OPTIMIZATION.md::4. Event Cleanup"
+        },
+        {
+            "type": "H3_Category",
+            "label": "5. OnDestroy Cleanup",
+            "source_file": "OPTIMIZATION.md",
+            "community": 13,
+            "id": "OPTIMIZATION.md::5. OnDestroy Cleanup"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\ud83c\udfaf Performance Metrics",
+            "source_file": "OPTIMIZATION.md",
+            "community": 14,
+            "id": "OPTIMIZATION.md::\ud83c\udfaf Performance Metrics"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Memory Allocation",
+            "source_file": "OPTIMIZATION.md",
+            "community": 14,
+            "id": "OPTIMIZATION.md::Memory Allocation"
+        },
+        {
+            "type": "H3_Category",
+            "label": "GC Impact",
+            "source_file": "OPTIMIZATION.md",
+            "community": 14,
+            "id": "OPTIMIZATION.md::GC Impact"
+        },
+        {
+            "type": "H3_Category",
+            "label": "CPU Performance",
+            "source_file": "OPTIMIZATION.md",
+            "community": 14,
+            "id": "OPTIMIZATION.md::CPU Performance"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\ud83d\udeab C\u00e1c V\u1ea5n \u0110\u1ec1 \u0110\u00e3 \u0110\u01b0\u1ee3c Fix",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::\ud83d\udeab C\u00e1c V\u1ea5n \u0110\u1ec1 \u0110\u00e3 \u0110\u01b0\u1ee3c Fix"
+        },
+        {
+            "type": "H3_Category",
+            "label": "1. Memory Leak t\u1eeb DOTween",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::1. Memory Leak t\u1eeb DOTween"
+        },
+        {
+            "type": "H3_Category",
+            "label": "2. Orphan Sequences",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::2. Orphan Sequences"
+        },
+        {
+            "type": "H3_Category",
+            "label": "3. Event Subscriptions",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::3. Event Subscriptions"
+        },
+        {
+            "type": "H3_Category",
+            "label": "4. Dead Tween References",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::4. Dead Tween References"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\ud83d\udccb Best Practices \u0110\u1ec3 Tr\u00e1nh Memory Leak",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::\ud83d\udccb Best Practices \u0110\u1ec3 Tr\u00e1nh Memory Leak"
+        },
+        {
+            "type": "H3_Category",
+            "label": "\u2705 DO's",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::\u2705 DO's"
+        },
+        {
+            "type": "H3_Category",
+            "label": "\u274c DON'Ts",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::\u274c DON'Ts"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\ud83d\udd27 Troubleshooting Memory Issues",
+            "source_file": "OPTIMIZATION.md",
+            "community": 16,
+            "id": "OPTIMIZATION.md::\ud83d\udd27 Troubleshooting Memory Issues"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Detect Memory Leaks",
+            "source_file": "OPTIMIZATION.md",
+            "community": 16,
+            "id": "OPTIMIZATION.md::Detect Memory Leaks"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Common Signs of Memory Leak",
+            "source_file": "OPTIMIZATION.md",
+            "community": 16,
+            "id": "OPTIMIZATION.md::Common Signs of Memory Leak"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Quick Fixes",
+            "source_file": "OPTIMIZATION.md",
+            "community": 16,
+            "id": "OPTIMIZATION.md::Quick Fixes"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\ud83d\udcca Monitoring & Metrics",
+            "source_file": "OPTIMIZATION.md",
+            "community": 17,
+            "id": "OPTIMIZATION.md::\ud83d\udcca Monitoring & Metrics"
+        },
+        {
+            "type": "H3_Category",
+            "label": "How to Monitor Memory Usage",
+            "source_file": "OPTIMIZATION.md",
+            "community": 17,
+            "id": "OPTIMIZATION.md::How to Monitor Memory Usage"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Recommended Limits",
+            "source_file": "OPTIMIZATION.md",
+            "community": 17,
+            "id": "OPTIMIZATION.md::Recommended Limits"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Testing for Leaks",
+            "source_file": "OPTIMIZATION.md",
+            "community": 17,
+            "id": "OPTIMIZATION.md::Testing for Leaks"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\ud83c\udf93 Advanced Optimizations",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::\ud83c\udf93 Advanced Optimizations"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Object Pooling (Optional)",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::Object Pooling (Optional)"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Lazy Animation Creation",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::Lazy Animation Creation"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Batching Animations",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::Batching Animations"
+        },
+        {
+            "type": "H2_Category",
+            "label": "\ud83c\udfaf Summary",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::\ud83c\udfaf Summary"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Key Takeaways",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::Key Takeaways"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Performance Gains",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::Performance Gains"
+        },
+        {
+            "type": "H3_Category",
+            "label": "When in Doubt",
+            "source_file": "OPTIMIZATION.md",
+            "community": 15,
+            "id": "OPTIMIZATION.md::When in Doubt"
+        },
+        {
+            "type": "H1_Category",
+            "label": "Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh"
+        },
+        {
+            "type": "H2_Category",
+            "label": "T\u1ed5ng Quan",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::T\u1ed5ng Quan"
+        },
+        {
+            "type": "H2_Category",
+            "label": "C\u1ea5u Tr\u00fac",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::C\u1ea5u Tr\u00fac"
+        },
+        {
+            "type": "H2_Category",
+            "label": "T\u00ednh N\u0103ng Ch\u00ednh",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::T\u00ednh N\u0103ng Ch\u00ednh"
+        },
+        {
+            "type": "H3_Category",
+            "label": "1. Animation Types \u0110\u1ea7y \u0110\u1ee7",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::1. Animation Types \u0110\u1ea7y \u0110\u1ee7"
+        },
+        {
+            "type": "H3_Category",
+            "label": "2. Play Modes",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::2. Play Modes"
+        },
+        {
+            "type": "H3_Category",
+            "label": "3. Ease Types",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::3. Ease Types"
+        },
+        {
+            "type": "H3_Category",
+            "label": "4. Editor Features",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::4. Editor Features"
+        },
+        {
+            "type": "H2_Category",
+            "label": "H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Quick Start",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::Quick Start"
+        },
+        {
+            "type": "Technical",
+            "label": "AnimationManager",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "tech::AnimationManager"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Preview trong Editor",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::Preview trong Editor"
+        },
+        {
+            "type": "H3_Category",
+            "label": "S\u1eed\u1ee4ng Presets",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::S\u1eed\u1ee4ng Presets"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Config Chi Ti\u1ebft Cho T\u1eebng Animation Type",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::Config Chi Ti\u1ebft Cho T\u1eebng Animation Type"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Loop Settings",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::Loop Settings"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Advanced Settings",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::Advanced Settings"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Events",
+            "source_file": "README.md",
+            "community": 18,
+            "id": "README.md::Events"
+        },
+        {
+            "type": "H2_Category",
+            "label": "API - Code Usage",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::API - Code Usage"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Play/Control Animations",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::Play/Control Animations"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Subscribe Events",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::Subscribe Events"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Get Info",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::Get Info"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Dynamic Add Animations",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::Dynamic Add Animations"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Tips & Best Practices",
+            "source_file": "README.md",
+            "community": 19,
+            "id": "README.md::Tips & Best Practices"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Performance",
+            "source_file": "README.md",
+            "community": 19,
+            "id": "README.md::Performance"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Canvas vs Non-Canvas",
+            "source_file": "README.md",
+            "community": 19,
+            "id": "README.md::Canvas vs Non-Canvas"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Timeline",
+            "source_file": "README.md",
+            "community": 19,
+            "id": "README.md::Timeline"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Presets",
+            "source_file": "README.md",
+            "community": 19,
+            "id": "README.md::Presets"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Gizmos",
+            "source_file": "README.md",
+            "community": 19,
+            "id": "README.md::Gizmos"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Keyboard Shortcuts (trong Timeline)",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::Keyboard Shortcuts (trong Timeline)"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Troubleshooting",
+            "source_file": "README.md",
+            "community": 20,
+            "id": "README.md::Troubleshooting"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Animation kh\u00f4ng ch\u1ea1y",
+            "source_file": "README.md",
+            "community": 20,
+            "id": "README.md::Animation kh\u00f4ng ch\u1ea1y"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Preview kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng",
+            "source_file": "README.md",
+            "community": 20,
+            "id": "README.md::Preview kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Canvas animation kh\u00f4ng \u0111\u00fang",
+            "source_file": "README.md",
+            "community": 20,
+            "id": "README.md::Canvas animation kh\u00f4ng \u0111\u00fang"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Path kh\u00f4ng hi\u1ec3n th\u1ecb",
+            "source_file": "README.md",
+            "community": 20,
+            "id": "README.md::Path kh\u00f4ng hi\u1ec3n th\u1ecb"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Staggered Animations (List Objects)",
+            "source_file": "README.md",
+            "community": 21,
+            "id": "README.md::Staggered Animations (List Objects)"
+        },
+        {
+            "type": "H3_Category",
+            "label": "S\u1eed d\u1ee5ng StaggeredAnimationManager Component",
+            "source_file": "README.md",
+            "community": 21,
+            "id": "README.md::S\u1eed d\u1ee5ng StaggeredAnimationManager Component"
+        },
+        {
+            "type": "Technical",
+            "label": "StaggeredAnimationManager",
+            "source_file": "README.md",
+            "community": 21,
+            "id": "tech::StaggeredAnimationManager"
+        },
+        {
+            "type": "H3_Category",
+            "label": "S\u1eed d\u1ee5ng Extension Methods (Quick & Easy)",
+            "source_file": "README.md",
+            "community": 21,
+            "id": "README.md::S\u1eed d\u1ee5ng Extension Methods (Quick & Easy)"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Use Cases",
+            "source_file": "README.md",
+            "community": 21,
+            "id": "README.md::Use Cases"
+        },
+        {
+            "type": "H3_Category",
+            "label": "Performance Tips",
+            "source_file": "README.md",
+            "community": 21,
+            "id": "README.md::Performance Tips"
+        },
+        {
+            "type": "H2_Category",
+            "label": "Support & Contact",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "README.md::Support & Contact"
+        },
+        {
+            "type": "Technical",
+            "label": "HenryLe.Scripts.AnimationModule",
+            "source_file": "README.md",
+            "community": 22,
+            "id": "tech::HenryLe.Scripts.AnimationModule"
+        }
+    ],
+    "edges": [
+        {
+            "relation": "contains",
+            "source": "GEMINI.md::Project Specific Rules: Unity MCP",
+            "target": "GEMINI.md::1. Project Architecture"
+        },
+        {
+            "relation": "contains",
+            "source": "GEMINI.md::Project Specific Rules: Unity MCP",
+            "target": "GEMINI.md::2. Code Conventions"
+        },
+        {
+            "relation": "contains",
+            "source": "GEMINI.md::Project Specific Rules: Unity MCP",
+            "target": "GEMINI.md::3. Learned Patterns & Gotchas"
+        },
+        {
+            "relation": "references",
+            "source": "GEMINI.md::2. Code Conventions",
+            "target": "tech::PascalCase"
+        },
+        {
+            "relation": "references",
+            "source": "GEMINI.md::2. Code Conventions",
+            "target": "tech::GetComponent"
+        },
+        {
+            "relation": "contains",
+            "source": "SystemArchitecture.md::Workspace Rules - RAG, Embedding, and Few-Shot Integration",
+            "target": "SystemArchitecture.md::1. RAG (Retrieval-Augmented Generation) Technical Standards"
+        },
+        {
+            "relation": "contains",
+            "source": "SystemArchitecture.md::Workspace Rules - RAG, Embedding, and Few-Shot Integration",
+            "target": "SystemArchitecture.md::2. Data Embedding & Semantic Search Strategy"
+        },
+        {
+            "relation": "contains",
+            "source": "SystemArchitecture.md::Workspace Rules - RAG, Embedding, and Few-Shot Integration",
+            "target": "SystemArchitecture.md::3. Few-Shot Prompting Execution"
+        },
+        {
+            "relation": "references",
+            "source": "SystemArchitecture.md::1. RAG (Retrieval-Augmented Generation) Technical Standards",
+            "target": "tech::Global_DNA.md"
+        },
+        {
+            "relation": "contains",
+            "source": "art-2d.md::2D Art & Asset Generation Learnings",
+            "target": "art-2d.md::Gotchas"
+        },
+        {
+            "relation": "contains",
+            "source": "art-2d.md::2D Art & Asset Generation Learnings",
+            "target": "art-2d.md::Best Practices"
+        },
+        {
+            "relation": "references",
+            "source": "art-2d.md::Best Practices",
+            "target": "tech::Image.Resampling.LANCZOS"
+        },
+        {
+            "relation": "references",
+            "source": "tech::Image.Resampling.LANCZOS",
+            "target": "art-generation-patterns.md::Rule: Mobile VRAM Optimization \u2014 Hard Size Limits"
+        },
+        {
+            "relation": "contains",
+            "source": "game-designer.md::Game Designer Learnings & Patterns",
+            "target": "game-designer.md::Data Sync"
+        },
+        {
+            "relation": "contains",
+            "source": "graphrag-architecture.md::GraphRAG Architecture and Context Retrieval",
+            "target": "graphrag-architecture.md::Pre-computed Context (Zero Latency Strategy)"
+        },
+        {
+            "relation": "contains",
+            "source": "graphrag-architecture.md::GraphRAG Architecture and Context Retrieval",
+            "target": "graphrag-architecture.md::Developer Rules"
+        },
+        {
+            "relation": "references",
+            "source": "graphrag-architecture.md::Pre-computed Context (Zero Latency Strategy)",
+            "target": "tech::SentenceTransformer"
+        },
+        {
+            "relation": "contains",
+            "source": "unity-dev.md::Unity Dev Learnings & Patterns",
+            "target": "unity-dev.md::Code Architecture & Patterns"
+        },
+        {
+            "relation": "contains",
+            "source": "unity-dev.md::Unity Dev Learnings & Patterns",
+            "target": "unity-dev.md::Gameplay & Physics"
+        },
+        {
+            "relation": "contains",
+            "source": "unity-dev.md::Unity Dev Learnings & Patterns",
+            "target": "unity-dev.md::Audio"
+        },
+        {
+            "relation": "contains",
+            "source": "unity-dev.md::Unity Dev Learnings & Patterns",
+            "target": "unity-dev.md::Editor & Tooling"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Code Architecture & Patterns",
+            "target": "unity-dev.md::Prefab Variants for Data-Driven Spawning"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Code Architecture & Patterns",
+            "target": "unity-dev.md::Component State Bypass"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Gameplay & Physics",
+            "target": "unity-dev.md::Physics2D with Orthographic Camera"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Gameplay & Physics",
+            "target": "unity-dev.md::Raycasts Inside Colliders"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Gameplay & Physics",
+            "target": "unity-dev.md::Puzzle Mechanics - Hazard Neutralization"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Gameplay & Physics",
+            "target": "unity-dev.md::Missing Tags on Prefabs"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Audio",
+            "target": "unity-dev.md::Audio Muting & Pausing"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Editor & Tooling",
+            "target": "unity-dev.md::UI Button Listeners in Editor Scripts"
+        },
+        {
+            "relation": "defines",
+            "source": "unity-dev.md::Editor & Tooling",
+            "target": "unity-dev.md::SerializedObjectNotCreatableException"
+        },
+        {
+            "relation": "contains",
+            "source": "art-generation-patterns.md::Art Generation Patterns",
+            "target": "art-generation-patterns.md::Gotcha: Magenta Background Removal \u2014 Basic BFS Fails on Holes"
+        },
+        {
+            "relation": "contains",
+            "source": "art-generation-patterns.md::Correct: scan all pixels for BFS seeds",
+            "target": "art-generation-patterns.md::Gotcha: Crop Fails When Background Not Pre-Removed"
+        },
+        {
+            "relation": "contains",
+            "source": "art-generation-patterns.md::Correct: scan all pixels for BFS seeds",
+            "target": "art-generation-patterns.md::Rule: Mobile VRAM Optimization \u2014 Hard Size Limits"
+        },
+        {
+            "relation": "contains",
+            "source": "art-generation-patterns.md::Correct: scan all pixels for BFS seeds",
+            "target": "art-generation-patterns.md::Rule: Single Asset per Generation"
+        },
+        {
+            "relation": "contains",
+            "source": "art-generation-patterns.md::Correct: scan all pixels for BFS seeds",
+            "target": "art-generation-patterns.md::Rule: Generation Background Constraint"
+        },
+        {
+            "relation": "references",
+            "source": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference",
+            "target": "tech::Dialog.cs"
+        },
+        {
+            "relation": "references",
+            "source": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference",
+            "target": "tech::MenuManager.cs"
+        },
+        {
+            "relation": "contains",
+            "source": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference",
+            "target": "ui-dialog-patterns.md::Pattern: Generic Dialog&lt;T&gt; with Static Lifecycle"
+        },
+        {
+            "relation": "contains",
+            "source": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference",
+            "target": "ui-dialog-patterns.md::Pattern: MenuManager with ObjectPool&lt;Dialog&gt;"
+        },
+        {
+            "relation": "contains",
+            "source": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference",
+            "target": "ui-dialog-patterns.md::Critical Rules"
+        },
+        {
+            "relation": "contains",
+            "source": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference",
+            "target": "ui-dialog-patterns.md::Integration Contract"
+        },
+        {
+            "relation": "contains",
+            "source": "ui-dialog-patterns.md::UI Dialog System \u2014 Architecture Reference",
+            "target": "ui-dialog-patterns.md::Gotcha: Instance null after animation"
+        },
+        {
+            "relation": "references",
+            "source": "ui-dialog-patterns.md::Pattern: Generic Dialog&lt;T&gt; with Static Lifecycle",
+            "target": "tech::Instance"
+        },
+        {
+            "relation": "references",
+            "source": "ui-dialog-patterns.md::Pattern: Generic Dialog&lt;T&gt; with Static Lifecycle",
+            "target": "tech::OnDestroy"
+        },
+        {
+            "relation": "references",
+            "source": "ui-dialog-patterns.md::Pattern: MenuManager with ObjectPool&lt;Dialog&gt;",
+            "target": "tech::Type"
+        },
+        {
+            "relation": "references",
+            "source": "ui-dialog-patterns.md::Critical Rules",
+            "target": "tech::RenderMode.ScreenSpaceCamera"
+        },
+        {
+            "relation": "references",
+            "source": "ui-dialog-patterns.md::Critical Rules",
+            "target": "tech::OnHideComplete"
+        },
+        {
+            "relation": "contains",
+            "source": "game-design-contracts.md::Game Design Document Contracts",
+            "target": "game-design-contracts.md::Contract: GDD \u2192 game-audio-prompter"
+        },
+        {
+            "relation": "contains",
+            "source": "game-design-contracts.md::Game Design Document Contracts",
+            "target": "game-design-contracts.md::Contract: GDD \u2192 game-dev-unity"
+        },
+        {
+            "relation": "contains",
+            "source": "game-design-contracts.md::Game Design Document Contracts",
+            "target": "game-design-contracts.md::Rule: Data Sync \u2014 GDD \u2194 Dev Enums"
+        },
+        {
+            "relation": "contains",
+            "source": "game-design-contracts.md::Game Design Document Contracts",
+            "target": "game-design-contracts.md::Rule: Prerequisite Order"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\ud83c\udfaf Performance Metrics"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\ud83d\udeab C\u00e1c V\u1ea5n \u0110\u1ec1 \u0110\u00e3 \u0110\u01b0\u1ee3c Fix"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\ud83d\udccb Best Practices \u0110\u1ec3 Tr\u00e1nh Memory Leak"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\ud83d\udd27 Troubleshooting Memory Issues"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\ud83d\udcca Monitoring & Metrics"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\ud83c\udf93 Advanced Optimizations"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "target": "OPTIMIZATION.md::\ud83c\udfaf Summary"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng",
+            "target": "OPTIMIZATION.md::1. DOTween Recyclable System"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng",
+            "target": "OPTIMIZATION.md::2. Sequence Auto-Kill"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng",
+            "target": "OPTIMIZATION.md::3. Proper Tween Cleanup"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng",
+            "target": "OPTIMIZATION.md::4. Event Cleanup"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\u2705 C\u00e1c T\u1ed1i \u01afu \u0110\u00e3 \u0110\u01b0\u1ee3c \u00c1p D\u1ee5ng",
+            "target": "OPTIMIZATION.md::5. OnDestroy Cleanup"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udfaf Performance Metrics",
+            "target": "OPTIMIZATION.md::Memory Allocation"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udfaf Performance Metrics",
+            "target": "OPTIMIZATION.md::GC Impact"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udfaf Performance Metrics",
+            "target": "OPTIMIZATION.md::CPU Performance"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udeab C\u00e1c V\u1ea5n \u0110\u1ec1 \u0110\u00e3 \u0110\u01b0\u1ee3c Fix",
+            "target": "OPTIMIZATION.md::1. Memory Leak t\u1eeb DOTween"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udeab C\u00e1c V\u1ea5n \u0110\u1ec1 \u0110\u00e3 \u0110\u01b0\u1ee3c Fix",
+            "target": "OPTIMIZATION.md::2. Orphan Sequences"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udeab C\u00e1c V\u1ea5n \u0110\u1ec1 \u0110\u00e3 \u0110\u01b0\u1ee3c Fix",
+            "target": "OPTIMIZATION.md::3. Event Subscriptions"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udeab C\u00e1c V\u1ea5n \u0110\u1ec1 \u0110\u00e3 \u0110\u01b0\u1ee3c Fix",
+            "target": "OPTIMIZATION.md::4. Dead Tween References"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udccb Best Practices \u0110\u1ec3 Tr\u00e1nh Memory Leak",
+            "target": "OPTIMIZATION.md::\u2705 DO's"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udccb Best Practices \u0110\u1ec3 Tr\u00e1nh Memory Leak",
+            "target": "OPTIMIZATION.md::\u274c DON'Ts"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udd27 Troubleshooting Memory Issues",
+            "target": "OPTIMIZATION.md::Detect Memory Leaks"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udd27 Troubleshooting Memory Issues",
+            "target": "OPTIMIZATION.md::Common Signs of Memory Leak"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udd27 Troubleshooting Memory Issues",
+            "target": "OPTIMIZATION.md::Quick Fixes"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udcca Monitoring & Metrics",
+            "target": "OPTIMIZATION.md::How to Monitor Memory Usage"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udcca Monitoring & Metrics",
+            "target": "OPTIMIZATION.md::Recommended Limits"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83d\udcca Monitoring & Metrics",
+            "target": "OPTIMIZATION.md::Testing for Leaks"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udf93 Advanced Optimizations",
+            "target": "OPTIMIZATION.md::Object Pooling (Optional)"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udf93 Advanced Optimizations",
+            "target": "OPTIMIZATION.md::Lazy Animation Creation"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udf93 Advanced Optimizations",
+            "target": "OPTIMIZATION.md::Batching Animations"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udfaf Summary",
+            "target": "OPTIMIZATION.md::Key Takeaways"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udfaf Summary",
+            "target": "OPTIMIZATION.md::Performance Gains"
+        },
+        {
+            "relation": "contains",
+            "source": "OPTIMIZATION.md::\ud83c\udfaf Summary",
+            "target": "OPTIMIZATION.md::When in Doubt"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::T\u1ed5ng Quan"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::C\u1ea5u Tr\u00fac"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::T\u00ednh N\u0103ng Ch\u00ednh"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::API - Code Usage"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::Tips & Best Practices"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::Keyboard Shortcuts (trong Timeline)"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::Troubleshooting"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::Staggered Animations (List Objects)"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Animation Module - H\u1ec7 Th\u1ed1ng Animation Ho\u00e0n Ch\u1ec9nh",
+            "target": "README.md::Support & Contact"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::T\u00ednh N\u0103ng Ch\u00ednh",
+            "target": "README.md::1. Animation Types \u0110\u1ea7y \u0110\u1ee7"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::T\u00ednh N\u0103ng Ch\u00ednh",
+            "target": "README.md::2. Play Modes"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::T\u00ednh N\u0103ng Ch\u00ednh",
+            "target": "README.md::3. Ease Types"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::T\u00ednh N\u0103ng Ch\u00ednh",
+            "target": "README.md::4. Editor Features"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "target": "README.md::Quick Start"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "target": "README.md::Preview trong Editor"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "target": "README.md::S\u1eed\u1ee4ng Presets"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "target": "README.md::Config Chi Ti\u1ebft Cho T\u1eebng Animation Type"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "target": "README.md::Loop Settings"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "target": "README.md::Advanced Settings"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::H\u01b0\u1edbng D\u1eabn S\u1eed D\u1ee5ng",
+            "target": "README.md::Events"
+        },
+        {
+            "relation": "references",
+            "source": "README.md::Quick Start",
+            "target": "tech::AnimationManager"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::API - Code Usage",
+            "target": "README.md::Play/Control Animations"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::API - Code Usage",
+            "target": "README.md::Subscribe Events"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::API - Code Usage",
+            "target": "README.md::Get Info"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::API - Code Usage",
+            "target": "README.md::Dynamic Add Animations"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Tips & Best Practices",
+            "target": "README.md::Performance"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Tips & Best Practices",
+            "target": "README.md::Canvas vs Non-Canvas"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Tips & Best Practices",
+            "target": "README.md::Timeline"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Tips & Best Practices",
+            "target": "README.md::Presets"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Tips & Best Practices",
+            "target": "README.md::Gizmos"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Troubleshooting",
+            "target": "README.md::Animation kh\u00f4ng ch\u1ea1y"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Troubleshooting",
+            "target": "README.md::Preview kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Troubleshooting",
+            "target": "README.md::Canvas animation kh\u00f4ng \u0111\u00fang"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Troubleshooting",
+            "target": "README.md::Path kh\u00f4ng hi\u1ec3n th\u1ecb"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Staggered Animations (List Objects)",
+            "target": "README.md::S\u1eed d\u1ee5ng StaggeredAnimationManager Component"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Staggered Animations (List Objects)",
+            "target": "README.md::S\u1eed d\u1ee5ng Extension Methods (Quick & Easy)"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Staggered Animations (List Objects)",
+            "target": "README.md::Use Cases"
+        },
+        {
+            "relation": "contains",
+            "source": "README.md::Staggered Animations (List Objects)",
+            "target": "README.md::Performance Tips"
+        },
+        {
+            "relation": "references",
+            "source": "README.md::S\u1eed d\u1ee5ng StaggeredAnimationManager Component",
+            "target": "tech::StaggeredAnimationManager"
+        },
+        {
+            "relation": "references",
+            "source": "README.md::Support & Contact",
+            "target": "tech::HenryLe.Scripts.AnimationModule"
+        }
+    ]
+}

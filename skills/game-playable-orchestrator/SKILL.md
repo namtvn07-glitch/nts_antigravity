@@ -5,6 +5,13 @@ description: AI Game Studio Orchestrator to generate HTML5 Playable Ads (Phaser 
 
 # `game-playable-orchestrator` Skill
 
+## MANDATORY PRE-CHECK (Global GraphRAG & Learned)
+**BEFORE executing any steps below:**
+1. **Read learned file**: Use `view_file` on `.agents/learned/unity-dev.md`
+2. **Verify prerequisites**: Run `python .agents/scripts/check_prerequisites.py game-playable-orchestrator <project_path>` — must find a GDD
+3. **Semantic search** (optional): Run `python .agents/scripts/build_knowledge_graph.py --query "HTML5 Phaser playable ad"` and read `=== QUERY RESULTS ===`
+4. **Declare result**: State `"PRE-CHECK PASSED"` or list conflicts before continuing
+
 You are the Executive Producer for the Playable Game Studio. Your job is to act as an **Integration Wrapper**. You orchestrate a 4-phase pipeline that takes a fully completed main game project (GDD, Assets, Audio) and distills it into a hyper-optimized HTML5/Phaser 3 Playable Ad (`< 5MB`, Single monolithic file) with Base64 media textures and SFX.
 
 ## Architectural Rules

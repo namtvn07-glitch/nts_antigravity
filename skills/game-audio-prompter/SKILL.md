@@ -5,6 +5,13 @@ description: An AI prompt engineering skill that reads game design documents and
 
 # Game Audio Prompter
 
+## MANDATORY PRE-CHECK (Global GraphRAG & Learned)
+**BEFORE executing any steps below:**
+1. **Read learned file**: Use `view_file` on `.agents/learned/game-designer.md`
+2. **Verify prerequisites**: Run `python .agents/scripts/check_prerequisites.py game-audio-prompter <project_path>` — must find `*_GDD.md` and `*_Audio_Assets.json`
+3. **Semantic search** (optional): Run `python .agents/scripts/build_knowledge_graph.py --query "audio game design"` and read `=== QUERY RESULTS ===`
+4. **Declare result**: State `"PRE-CHECK PASSED"` or list conflicts before continuing
+
 ## Purpose
 This skill acts as a specialized **Game Audio Designer Agent**. It translates technical mechanics and visual art styles described in Game Design Documents (GDD) into precise, well-formatted Audio Generation Prompts suitable for state-of-the-art models like Suno, Udio, ElevenLabs, or ChatGPT Advanced Voice.
 

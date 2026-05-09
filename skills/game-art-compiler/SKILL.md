@@ -5,6 +5,13 @@ description: Use this skill specifically when the user requests to "compile", "a
 
 # Compile Artist Style V2
 
+## MANDATORY PRE-CHECK (Global GraphRAG & Learned)
+**BEFORE executing any steps below:**
+1. **Read learned files**: Use `view_file` on `.agents/learned/art-2d.md` and `.agents/learned/graphrag-architecture.md`
+2. **Semantic search** (optional): Run `python .agents/scripts/build_knowledge_graph.py --query "<style_name> art compilation"` and read `=== QUERY RESULTS ===`
+3. **Conflict check**: If any retrieved DNA rule contradicts the style being compiled, STOP and present the conflict to the user
+4. **Declare result**: State `"PRE-CHECK PASSED"` or list conflicts before continuing
+
 ## Overview
 This skill acts as a robust Data Ingestion Pipeline for your game artist workflows. It transforms a loose directory of reference images into a mathematically structured Vector schema (`style_index.json`) and specific rulesets meant to decouple Generation mechanisms from strict Evaluation heuristics.
 
@@ -63,7 +70,11 @@ This skill acts as a robust Data Ingestion Pipeline for your game artist workflo
   }
   ```
 
-### 5. Acknowledge Target & Finish
+### 5. Ingest into Global GraphRAG
+- Because you created a new `Generation_DNA.md` containing important rules, you MUST ingest it into the Global Knowledge Graph.
+- Execute `python .agents/scripts/build_knowledge_graph.py` in the terminal and wait for it to finish. This ensures the FAISS index is up to date for other agents.
+
+### 6. Acknowledge Target & Finish
 - Present the updated section explicitly to the user to confirm that the changes were securely registered.
-- Remind the user that these global rules will now forcefully apply to the next `game-art-orchestrator` execution.
+- Remind the user that these global rules will now forcefully apply to the next `game-art-orchestrator` execution via the GraphRAG system.
 - **Integration:** Automatically run the `/finish` workflow to document any data ingestion gotchas or conflicts identified during the compilation process.

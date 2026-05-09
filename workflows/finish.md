@@ -83,12 +83,32 @@ What type of learning is this?
 > **Dual-category tiebreaker**: When a learning fits multiple categories (e.g., both a gotcha and a pattern),
 > place it in the higher-priority location. `GEMINI.md` always wins.
 
-### 3.3 Quality Gate — do NOT add if:
-- Design decision (not a gotcha)
-- Only applies to one specific place
-- UX preference or business logic
-- Common pattern, no need to document
-- Did not cause errors/debugging in this task → not a gotcha
+### 3.3 Quality Gate — Entry MUST pass ALL 3 filters
+
+Every candidate entry must pass these 3 filters before being written. If it fails ANY filter → **do NOT write it**.
+
+**Filter 1 — Novelty** (Was this surprising or did it cause a real bug?)
+- ❌ REJECT if it's standard framework behavior documented in official Unity/engine docs
+- ❌ REJECT if any competent developer would already know this (e.g., "cache GetComponent", "unsubscribe events in OnDisable", "Resources.Load needs Resources folder")
+- ✅ ACCEPT only if discovered through actual debugging or unexpected behavior in THIS task
+
+**Filter 2 — Non-Duplication** (Does this ALREADY exist somewhere?)
+- Search `.agents/skills/game-dev-unity/sub-skill/*.md` for the same concept
+- Search `.agents/knowledge/` for the same pattern
+- Search the target `.agents/learned/*.md` file for semantically similar entries
+- ❌ REJECT if covered by existing sub-skill rules (even partially)
+- ❌ REJECT if an existing learned entry covers >80% of the same topic → MERGE instead of appending
+- ✅ ACCEPT only if this is a genuinely NEW insight not captured anywhere
+
+**Filter 3 — Project Specificity** (Is this tied to THIS project's codebase?)
+- ❌ REJECT generic advice (e.g., "use events for decoupling", "write editor scripts for repetitive tasks")
+- ❌ REJECT Unity Editor bugs that are Googleable (e.g., "GameObjectInspector NullRef on Play Mode")
+- ✅ ACCEPT specific gotchas naming actual project classes (e.g., "MonsterController wrapper bypasses QuantizedAudioPlayer state")
+- ✅ ACCEPT specific patterns tied to game mechanics (e.g., "AcidPool hazard: set bodyType to Static for bridge")
+
+> [!IMPORTANT]
+> **If borderline on any filter → write a 1-line condensed version**, not a paragraph.
+> **Learned files are for scars, not textbooks.** Only record things that actually bit you.
 
 ### 3.4 Update priority (in order of importance):
 
@@ -102,12 +122,28 @@ What type of learning is this?
 > **`.agents/rules/GEMINI.md` is the primary location** because agents ALWAYS read this file first. Keep it strict to avoid bloat.
 > Only update workflows when the learning relates to PROCESS, not CODE.
 
-### 3.5 Update files:
+### 3.5 Dedup & Compaction Check (BEFORE writing new entry)
+Before appending, read the target learned file and search for semantically similar existing entries:
+- If an existing entry covers >80% of the same topic → **MERGE** (update it, do not append a duplicate)
+- If the file exceeds 60 entries → archive resolved gotchas to `[domain]-archive.md` and merge overlapping patterns
+
+### 3.6 Update files:
 // turbo
 - Read the file to update
-- Add learnings to the appropriate section
+- Add/merge learnings to the appropriate section
 - Keep formatting consistent with existing content
 - Note the source of the learning (which task)
+
+### 3.7 Re-vectorize Global Knowledge Graph
+// turbo
+After writing any new entries to `.agents/learned/` or `.agents/rules/`, rebuild the GraphRAG FAISS index so new learnings become immediately searchable by all skills:
+
+```
+python .agents/scripts/build_knowledge_graph.py
+```
+
+Wait for completion. Verify output shows node count significantly greater than 2.
+This step **closes the learning loop** — without it, new learnings are invisible to future agent queries.
 
 ## Step 4: Create Walkthrough
 // turbo

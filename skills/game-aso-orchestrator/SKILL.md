@@ -5,6 +5,13 @@ description: Automates the planning and production of ASO (App Store Optimizatio
 
 # Game ASO Orchestrator
 
+## MANDATORY PRE-CHECK (Global GraphRAG & Learned)
+**BEFORE executing any steps below:**
+1. **Read learned file**: Use `view_file` on `.agents/learned/art-2d.md`
+2. **Verify prerequisites**: Run `python .agents/scripts/check_prerequisites.py game-aso-orchestrator <project_path>` — must find a GDD
+3. **Semantic search** (optional): Run `python .agents/scripts/build_knowledge_graph.py --query "ASO app store marketing"` and read `=== QUERY RESULTS ===`
+4. **Declare result**: State `"PRE-CHECK PASSED"` or list conflicts before continuing
+
 You are the Master Orchestrator. You interact exclusively with the user and manage backend operations.
 
 ## Execution Workflow (3 Phases Workflow):

@@ -1,0 +1,281 @@
+[
+    {
+        "community_id": 0,
+        "nodes": [
+            "DevArchitechture.md::1. Think Before Coding"
+        ],
+        "summary": "Community of 1 concepts. H2_Category: 1. Think Before Coding"
+    },
+    {
+        "community_id": 1,
+        "nodes": [
+            "DevArchitechture.md::2. Simplicity First"
+        ],
+        "summary": "Community of 1 concepts. H2_Category: 2. Simplicity First"
+    },
+    {
+        "community_id": 2,
+        "nodes": [
+            "DevArchitechture.md::3. Surgical Changes"
+        ],
+        "summary": "Community of 1 concepts. H2_Category: 3. Surgical Changes"
+    },
+    {
+        "community_id": 3,
+        "nodes": [
+            "DevArchitechture.md::4. Goal-Driven Execution"
+        ],
+        "summary": "Community of 1 concepts. H2_Category: 4. Goal-Driven Execution"
+    },
+    {
+        "community_id": 4,
+        "nodes": [
+            "tech::GetComponent",
+            "tech::PascalCase",
+            "GEMINI.md::Project Specific Rules: Unity MCP",
+            "GEMINI.md::2. Code Conventions",
+            "GEMINI.md::3. Learned Patterns & Gotchas",
+            "GEMINI.md::1. Project Architecture"
+        ],
+        "summary": "Community of 6 concepts. H1_Category: Project Specific Rules: Unity MCP | H2_Category: 2. Code Conventions, 3. Learned Patterns & Gotchas, 1. Project Architecture | Technical: GetComponent, PascalCase"
+    },
+    {
+        "community_id": 5,
+        "nodes": [
+            "SystemArchitecture.md::Workspace Rules - RAG, Embedding, and Few-Shot Integration",
+            "SystemArchitecture.md::3. Few-Shot Prompting Execution",
+            "tech::Global_DNA.md",
+            "SystemArchitecture.md::1. RAG (Retrieval-Augmented Generation) Technical Standards",
+            "SystemArchitecture.md::2. Data Embedding & Semantic Search Strategy"
+        ],
+        "summary": "Community of 5 concepts. H1_Category: Workspace Rules - RAG, Embedding, and Few-Shot Integration | H2_Category: 3. Few-Shot Prompting Execution, 1. RAG (Retrieval-Augmented Generation) Technical Standards, 2. Data Embedding & Semantic Search Strategy | Technical: Global_DNA.md"
+    },
+    {
+        "community_id": 6,
+        "nodes": [
+            "art-generation-patterns.md::Gotcha: Crop Fails When Background Not Pre-Removed",
+            "art-generation-patterns.md::Correct: scan all pixels for BFS seeds",
+            "art-generation-patterns.md::Rule: Single Asset per Generation",
+            "tech::Image.Resampling.LANCZOS",
+            "art-generation-patterns.md::Rule: Generation Background Constraint",
+            "art-generation-patterns.md::Rule: Mobile VRAM Optimization — Hard Size Limits",
+            "art-2d.md::Best Practices",
+            "art-2d.md::Gotchas",
+            "art-2d.md::2D Art & Asset Generation Learnings"
+        ],
+        "summary": "Community of 9 concepts. H1_Category: Correct: scan all pixels for BFS seeds, 2D Art & Asset Generation Learnings | H2_Category: Gotcha: Crop Fails When Background Not Pre-Removed, Rule: Single Asset per Generation, Rule: Generation Background Constraint, Rule: Mobile VRAM Optimization — Hard Size Limits, Best Practices | Technical: Image.Resampling.LANCZOS"
+    },
+    {
+        "community_id": 7,
+        "nodes": [
+            "game-designer.md::Game Designer Learnings & Patterns",
+            "game-designer.md::Data Sync"
+        ],
+        "summary": "Community of 2 concepts. H1_Category: Game Designer Learnings & Patterns | H2_Category: Data Sync"
+    },
+    {
+        "community_id": 8,
+        "nodes": [
+            "graphrag-architecture.md::Developer Rules",
+            "graphrag-architecture.md::Pre-computed Context (Zero Latency Strategy)",
+            "tech::SentenceTransformer",
+            "graphrag-architecture.md::GraphRAG Architecture and Context Retrieval"
+        ],
+        "summary": "Community of 4 concepts. H1_Category: GraphRAG Architecture and Context Retrieval | H2_Category: Developer Rules, Pre-computed Context (Zero Latency Strategy) | Technical: SentenceTransformer"
+    },
+    {
+        "community_id": 9,
+        "nodes": [
+            "unity-dev.md::Audio Muting & Pausing",
+            "unity-dev.md::UI Button Listeners in Editor Scripts",
+            "unity-dev.md::Prefab Variants for Data-Driven Spawning",
+            "unity-dev.md::Unity Dev Learnings & Patterns",
+            "unity-dev.md::Gameplay & Physics",
+            "unity-dev.md::Physics2D with Orthographic Camera",
+            "unity-dev.md::Component State Bypass",
+            "unity-dev.md::Code Architecture & Patterns",
+            "unity-dev.md::Editor & Tooling",
+            "unity-dev.md::Missing Tags on Prefabs",
+            "unity-dev.md::Puzzle Mechanics - Hazard Neutralization",
+            "unity-dev.md::SerializedObjectNotCreatableException",
+            "unity-dev.md::Raycasts Inside Colliders",
+            "unity-dev.md::Audio"
+        ],
+        "summary": "Community of 14 concepts. Gotcha: Audio Muting & Pausing, UI Button Listeners in Editor Scripts, Physics2D with Orthographic Camera, Component State Bypass, Missing Tags on Prefabs | H1_Category: Unity Dev Learnings & Patterns | H2_Category: Gameplay & Physics, Code Architecture & Patterns, Editor & Tooling, Audio | Pattern: Prefab Variants for Data-Driven Spawning, Puzzle Mechanics - Hazard Neutralization"
+    },
+    {
+        "community_id": 10,
+        "nodes": [
+            "art-generation-patterns.md::Art Generation Patterns",
+            "art-generation-patterns.md::Gotcha: Magenta Background Removal — Basic BFS Fails on Holes"
+        ],
+        "summary": "Community of 2 concepts. H1_Category: Art Generation Patterns | H2_Category: Gotcha: Magenta Background Removal — Basic BFS Fails on Holes"
+    },
+    {
+        "community_id": 11,
+        "nodes": [
+            "tech::MenuManager.cs",
+            "tech::Instance",
+            "tech::Type",
+            "ui-dialog-patterns.md::Gotcha: Instance null after animation",
+            "tech::OnHideComplete",
+            "ui-dialog-patterns.md::Integration Contract",
+            "tech::OnDestroy",
+            "ui-dialog-patterns.md::Pattern: MenuManager with ObjectPool&lt;Dialog&gt;",
+            "ui-dialog-patterns.md::Pattern: Generic Dialog&lt;T&gt; with Static Lifecycle",
+            "ui-dialog-patterns.md::UI Dialog System — Architecture Reference",
+            "ui-dialog-patterns.md::Critical Rules",
+            "tech::RenderMode.ScreenSpaceCamera",
+            "tech::Dialog.cs"
+        ],
+        "summary": "Community of 13 concepts. H1_Category: UI Dialog System — Architecture Reference | H2_Category: Gotcha: Instance null after animation, Integration Contract, Pattern: MenuManager with ObjectPool&lt;Dialog&gt;, Pattern: Generic Dialog&lt;T&gt; with Static Lifecycle, Critical Rules | Technical: MenuManager.cs, Instance, Type, OnHideComplete, OnDestroy"
+    },
+    {
+        "community_id": 12,
+        "nodes": [
+            "game-design-contracts.md::Game Design Document Contracts",
+            "game-design-contracts.md::Contract: GDD → game-dev-unity",
+            "game-design-contracts.md::Contract: GDD → game-audio-prompter",
+            "game-design-contracts.md::Rule: Data Sync — GDD ↔ Dev Enums",
+            "game-design-contracts.md::Rule: Prerequisite Order"
+        ],
+        "summary": "Community of 5 concepts. H1_Category: Game Design Document Contracts | H2_Category: Contract: GDD → game-dev-unity, Contract: GDD → game-audio-prompter, Rule: Data Sync — GDD ↔ Dev Enums, Rule: Prerequisite Order"
+    },
+    {
+        "community_id": 13,
+        "nodes": [
+            "OPTIMIZATION.md::4. Event Cleanup",
+            "OPTIMIZATION.md::3. Proper Tween Cleanup",
+            "OPTIMIZATION.md::✅ Các Tối Ưu Đã Được Áp Dụng",
+            "OPTIMIZATION.md::2. Sequence Auto-Kill",
+            "OPTIMIZATION.md::5. OnDestroy Cleanup",
+            "OPTIMIZATION.md::1. DOTween Recyclable System"
+        ],
+        "summary": "Community of 6 concepts. H2_Category: ✅ Các Tối Ưu Đã Được Áp Dụng | H3_Category: 4. Event Cleanup, 3. Proper Tween Cleanup, 2. Sequence Auto-Kill, 5. OnDestroy Cleanup, 1. DOTween Recyclable System"
+    },
+    {
+        "community_id": 14,
+        "nodes": [
+            "OPTIMIZATION.md::🎯 Performance Metrics",
+            "OPTIMIZATION.md::Memory Allocation",
+            "OPTIMIZATION.md::CPU Performance",
+            "OPTIMIZATION.md::GC Impact"
+        ],
+        "summary": "Community of 4 concepts. H2_Category: 🎯 Performance Metrics | H3_Category: Memory Allocation, CPU Performance, GC Impact"
+    },
+    {
+        "community_id": 15,
+        "nodes": [
+            "OPTIMIZATION.md::Animation Module - Memory Optimization & Best Practices",
+            "OPTIMIZATION.md::📋 Best Practices Để Tránh Memory Leak",
+            "OPTIMIZATION.md::🎯 Summary",
+            "OPTIMIZATION.md::Object Pooling (Optional)",
+            "OPTIMIZATION.md::Lazy Animation Creation",
+            "OPTIMIZATION.md::🎓 Advanced Optimizations",
+            "OPTIMIZATION.md::Performance Gains",
+            "OPTIMIZATION.md::2. Orphan Sequences",
+            "OPTIMIZATION.md::4. Dead Tween References",
+            "OPTIMIZATION.md::1. Memory Leak từ DOTween",
+            "OPTIMIZATION.md::🚫 Các Vấn Đề Đã Được Fix",
+            "OPTIMIZATION.md::✅ DO's",
+            "OPTIMIZATION.md::Key Takeaways",
+            "OPTIMIZATION.md::Batching Animations",
+            "OPTIMIZATION.md::When in Doubt",
+            "OPTIMIZATION.md::❌ DON'Ts",
+            "OPTIMIZATION.md::3. Event Subscriptions"
+        ],
+        "summary": "Community of 17 concepts. H1_Category: Animation Module - Memory Optimization & Best Practices | H2_Category: 📋 Best Practices Để Tránh Memory Leak, 🎯 Summary, 🎓 Advanced Optimizations, 🚫 Các Vấn Đề Đã Được Fix | H3_Category: Object Pooling (Optional), Lazy Animation Creation, Performance Gains, 2. Orphan Sequences, 4. Dead Tween References"
+    },
+    {
+        "community_id": 16,
+        "nodes": [
+            "OPTIMIZATION.md::Quick Fixes",
+            "OPTIMIZATION.md::Common Signs of Memory Leak",
+            "OPTIMIZATION.md::Detect Memory Leaks",
+            "OPTIMIZATION.md::🔧 Troubleshooting Memory Issues"
+        ],
+        "summary": "Community of 4 concepts. H2_Category: 🔧 Troubleshooting Memory Issues | H3_Category: Quick Fixes, Common Signs of Memory Leak, Detect Memory Leaks"
+    },
+    {
+        "community_id": 17,
+        "nodes": [
+            "OPTIMIZATION.md::📊 Monitoring & Metrics",
+            "OPTIMIZATION.md::Testing for Leaks",
+            "OPTIMIZATION.md::Recommended Limits",
+            "OPTIMIZATION.md::How to Monitor Memory Usage"
+        ],
+        "summary": "Community of 4 concepts. H2_Category: 📊 Monitoring & Metrics | H3_Category: Testing for Leaks, Recommended Limits, How to Monitor Memory Usage"
+    },
+    {
+        "community_id": 18,
+        "nodes": [
+            "tech::AnimationManager",
+            "README.md::Preview trong Editor",
+            "README.md::Config Chi Tiết Cho Từng Animation Type",
+            "README.md::SửỤng Presets",
+            "README.md::Quick Start",
+            "README.md::Advanced Settings",
+            "README.md::Loop Settings",
+            "README.md::Events",
+            "README.md::Hướng Dẫn Sử Dụng"
+        ],
+        "summary": "Community of 9 concepts. H2_Category: Hướng Dẫn Sử Dụng | H3_Category: Preview trong Editor, Config Chi Tiết Cho Từng Animation Type, SửỤng Presets, Quick Start, Advanced Settings | Technical: AnimationManager"
+    },
+    {
+        "community_id": 19,
+        "nodes": [
+            "README.md::Performance",
+            "README.md::Timeline",
+            "README.md::Gizmos",
+            "README.md::Presets",
+            "README.md::Tips & Best Practices",
+            "README.md::Canvas vs Non-Canvas"
+        ],
+        "summary": "Community of 6 concepts. H2_Category: Tips & Best Practices | H3_Category: Performance, Timeline, Gizmos, Presets, Canvas vs Non-Canvas"
+    },
+    {
+        "community_id": 20,
+        "nodes": [
+            "README.md::Canvas animation không đúng",
+            "README.md::Path không hiển thị",
+            "README.md::Animation không chạy",
+            "README.md::Troubleshooting",
+            "README.md::Preview không hoạt động"
+        ],
+        "summary": "Community of 5 concepts. H2_Category: Troubleshooting | H3_Category: Canvas animation không đúng, Path không hiển thị, Animation không chạy, Preview không hoạt động"
+    },
+    {
+        "community_id": 21,
+        "nodes": [
+            "README.md::Sử dụng StaggeredAnimationManager Component",
+            "README.md::Performance Tips",
+            "tech::StaggeredAnimationManager",
+            "README.md::Use Cases",
+            "README.md::Sử dụng Extension Methods (Quick & Easy)",
+            "README.md::Staggered Animations (List Objects)"
+        ],
+        "summary": "Community of 6 concepts. H2_Category: Staggered Animations (List Objects) | H3_Category: Sử dụng StaggeredAnimationManager Component, Performance Tips, Use Cases, Sử dụng Extension Methods (Quick & Easy) | Technical: StaggeredAnimationManager"
+    },
+    {
+        "community_id": 22,
+        "nodes": [
+            "README.md::3. Ease Types",
+            "README.md::1. Animation Types Đầy Đủ",
+            "README.md::4. Editor Features",
+            "README.md::Play/Control Animations",
+            "README.md::Tính Năng Chính",
+            "README.md::Subscribe Events",
+            "README.md::Tổng Quan",
+            "README.md::Dynamic Add Animations",
+            "README.md::Animation Module - Hệ Thống Animation Hoàn Chỉnh",
+            "README.md::Support & Contact",
+            "README.md::Cấu Trúc",
+            "tech::HenryLe.Scripts.AnimationModule",
+            "README.md::2. Play Modes",
+            "README.md::Keyboard Shortcuts (trong Timeline)",
+            "README.md::API - Code Usage",
+            "README.md::Get Info"
+        ],
+        "summary": "Community of 16 concepts. H1_Category: Animation Module - Hệ Thống Animation Hoàn Chỉnh | H2_Category: Tính Năng Chính, Tổng Quan, Support & Contact, Cấu Trúc, Keyboard Shortcuts (trong Timeline) | H3_Category: 3. Ease Types, 1. Animation Types Đầy Đủ, 4. Editor Features, Play/Control Animations, Subscribe Events | Technical: HenryLe.Scripts.AnimationModule"
+    }
+]

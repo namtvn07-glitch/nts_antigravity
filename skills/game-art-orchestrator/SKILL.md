@@ -4,6 +4,14 @@ description: Automates the process of generating game assets matching a specific
 ---
 
 # Game Artist Auto Orchestrator
+
+## MANDATORY PRE-CHECK (Global GraphRAG & Learned)
+**BEFORE executing any steps below:**
+1. **Read learned file**: Use `view_file` on `.agents/learned/art-2d.md`
+2. **Verify prerequisites**: Run `python .agents/scripts/check_prerequisites.py game-art-orchestrator <project_path>` — if FAIL, stop and run `game-art-compiler` first
+3. **Semantic search** (optional): Run `python .agents/scripts/build_knowledge_graph.py --query "<asset_type> generation"` and read `=== QUERY RESULTS ===`
+4. **Declare result**: State `"PRE-CHECK PASSED"` or list conflicts before continuing
+
 This skill provides a 2-phase pipeline for strictly adhering to a stylistic `Generation_DNA` and Global rules when generating new game assets.
 
 ## Workflow Execution Steps

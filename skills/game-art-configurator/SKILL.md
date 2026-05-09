@@ -1,12 +1,19 @@
 ---
 name: game-art-configurator
-description: A knowledge management skill to modify, query, or add rules to the Global_DNA.md and automatically vectorize them for the RAG system.
+description: A knowledge management skill to modify, query, or add rules to the Global_DNA.md and automatically vectorize them for the Global GraphRAG system.
 ---
 
-# Update Design System (RAG)
+# Update Design System (Global GraphRAG)
+
+## MANDATORY PRE-CHECK (Global GraphRAG & Learned)
+**BEFORE executing any steps below:**
+1. **Read learned files**: Use `view_file` on `.agents/learned/art-2d.md` and `.agents/learned/graphrag-architecture.md`
+2. **Semantic search** (optional): Run `python .agents/scripts/build_knowledge_graph.py --query "global DNA rules art"` and read `=== QUERY RESULTS ===`
+3. **Conflict check**: If a new rule contradicts existing Global DNA, STOP and present the conflict to the user before writing
+4. **Declare result**: State `"PRE-CHECK PASSED"` or list conflicts before continuing
 
 ## Overview
-This skill acts as an Active Knowledge Management Agent for the Master Configuration file governing global aesthetic physics (`Assets/GameArtist/Global_DNA.md`). It ensures modifications are processed by a vectorization script to keep the global RAG database up to date, while actively checking for structural conflict against specific local styles.
+This skill acts as an Active Knowledge Management Agent for the Master Configuration file governing global aesthetic physics (`Assets/GameArtist/Global_DNA.md`). It ensures modifications are processed by the graph builder script to keep the global GraphRAG database up to date, while actively checking for structural conflict against specific local styles.
 
 ## Execution Steps
 
@@ -22,9 +29,9 @@ This skill acts as an Active Knowledge Management Agent for the Master Configura
 - Write the updated file back to `Assets/GameArtist/Global_DNA.md` using `write_to_file`.
 
 ### 3. Data Embedding (Vectorization)
-- Immediately after updating the Markdown, trigger the embedding script to rebuild the Global RAG database:
-  - Run `python scripts/create_global_embeddings.py`
-- Wait for the script to finish. It will automatically overwrite `Assets/GameArtist/global_index.json`.
+- Immediately after updating the Markdown, trigger the graph builder script to rebuild the Global GraphRAG database:
+  - Run `python .agents/scripts/build_knowledge_graph.py`
+- Wait for the script to finish. It will automatically update `.agents/graph_data/vector_index.faiss` and `.agents/graph_data/community_summaries.json`.
 
 ### 4. Conflict Resolution (Semantic RAG Search)
 - Review the terminal output from the script run. The script automatically calculates Cosine Similarity between your new global rules and all existing local style indices.
@@ -33,5 +40,5 @@ This skill acts as an Active Knowledge Management Agent for the Master Configura
 ### 5. Acknowledge & Confirm
 - Present the updated section explicitly to the user.
 - Ask them if they want to revise the rule based on the Conflict warnings (if any).
-- If no conflicts, remind the user that the global RAG context is now updated for the `game-art-orchestrator`.
+- If no conflicts, remind the user that the global GraphRAG context is now updated for the `game-art-orchestrator` and other agents.
 - **Integration:** Run the `/finish` workflow immediately after to record any structural rule conflicts found into the `docs/learned/` knowledge base.

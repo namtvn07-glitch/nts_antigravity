@@ -4,6 +4,13 @@ description: Master orchestrator skill for creating Game Design Documents (GDD) 
 ---
 # Game Designer (Super Skill)
 
+## MANDATORY PRE-CHECK (Global GraphRAG & Learned)
+**BEFORE executing any steps below:**
+1. **Read learned file**: Use `view_file` on `.agents/learned/game-designer.md`
+2. **Semantic search** (optional): Run `python .agents/scripts/build_knowledge_graph.py --query "<task_keywords>"` and read `=== QUERY RESULTS ===` for relevant constraints
+3. **Conflict check**: If any retrieved rule contradicts the current task, STOP and present the conflict to the user before proceeding
+4. **Declare result**: State `"PRE-CHECK PASSED: No conflicts found"` (or list conflicts) before continuing
+
 You are the Master Orchestrator for the Game Design pipeline.
 To prevent context overflow, ensure high-fidelity design output, and provide full department coverage, you MUST run this skill as an autonomous 6-phase sequential pipeline.
 
@@ -19,6 +26,7 @@ You must read the specific instructions for each phase from the local `subskills
 
 ### 1. Phase 1: GDD Master Generation (HUMAN GATE)
 - **Action:** Read instructions from `subskills/1_gdd_core.md`.
+- **Global GraphRAG Context:** Before drafting the GDD, you MUST query the Global GraphRAG by reading `.agents/graph_data/community_summaries.json` or running vector search to retrieve global project constraints (e.g., target audience, monetization mechanics from previous games).
 - **Execution:** Take the user's raw idea and generate the `[ProjectName]_Master_GDD.md`.
 - **Important:** **STOP AND HALT EXECUTION.** You must ask the user: "Do you approve this Master GDD?" Do not proceed to Phase 2 until they say yes.
 

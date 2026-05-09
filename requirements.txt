@@ -1,0 +1,3 @@
+networkx
+faiss-cpu
+sentence-transformers
