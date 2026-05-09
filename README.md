@@ -25,9 +25,10 @@ graph TD
         GD[game-designer<br/>Master GDD & Wireframes]:::preProd
     end
 
-    subgraph phase2 ["🧠 Phase 2: Nạp Dữ Liệu Knowledge & RAG"]
+    subgraph phase2 ["🧠 Phase 2: Nạp Dữ Liệu Knowledge & GraphRAG"]
         GACf[game-art-configurator<br/>Quản Lý Global DNA]:::dataIngest
         GAC[game-art-compiler<br/>Dịch Local Style DNA]:::dataIngest
+        GraphDB[(GraphRAG Knowledge Base<br/>Entities & Relationships)]:::dataIngest
     end
 
     subgraph phase3 ["⚙️ Phase 3: Sản Xuất & Lập Trình (Production)"]
@@ -46,10 +47,11 @@ graph TD
     GD -- "2. Art Direction" --> GAC
     GD -- "3. Logic Spec" --> GDU
     
-    GACf -- "Global Rules" --> GAO
-    GAC -- "Style Rules & Embeddings" --> GAO
+    GACf -- "Cập nhật Node/Edge" --> GraphDB
+    GAC -- "Vectorize & Map Entities" --> GraphDB
     
-    GAO -- "Đóng gói Art Assets" --> GDU
+    GraphDB -- "Truy vấn Đa chiều (Art)" --> GAO
+    GraphDB -- "Truy vấn Tri thức (Code)" --> GDU
     GAP -- "Đóng gói Audio" --> GDU
     
     GDU -- "Finished Unity Build" --> ASO
