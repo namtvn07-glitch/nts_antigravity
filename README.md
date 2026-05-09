@@ -1,137 +1,125 @@
-# 🎮 AI Game Studio: Hệ Thống Skills & Workflows
+# 🎮 NTS Game Studio: Agentic Skills & Workflows Ecosystem
 
-Tài liệu này hệ thống hóa toàn bộ vòng đời phát triển game (Game Development Lifecycle) được vận hành bởi bộ 8 AI Skills chuyên biệt. Mỗi skill đóng vai trò như một phòng ban (Department) thực thụ, tự động hóa từ giai đoạn lên ý tưởng thiết kế, sản xuất âm thanh/đồ họa, lập trình Unity, cho đến tối ưu hóa App Store và tạo Playable Ads.
+Chào mừng đến với hệ thống lõi của **NTS Game Studio**. Tài liệu này hệ thống hóa toàn bộ vòng đời phát triển game (Game Development Lifecycle), được vận hành hoàn toàn bởi một hệ sinh thái **AI Agentic Skills** độc lập và phối hợp chặt chẽ với nhau thông qua kiến trúc Model Context Protocol (MCP).
+
+Mỗi Skill hoạt động như một phòng ban chuyên trách, tự động hóa từ khâu lên ý tưởng thiết kế, sản xuất âm thanh/đồ họa, lập trình C# trên Unity, cho đến tối ưu hóa App Store và đóng gói Playable Ads.
 
 ---
 
-## 1. Tổng Quan Vòng Đời (Pipeline Diagram)
+## 1. 🌐 Tổng Quan Hệ Sinh Thái & Kiến Trúc (Architecture Pipeline)
 
-Sơ đồ dưới đây minh họa luồng giao tiếp dữ liệu và thứ tự thực thi của 8 skills trong toàn bộ quy trình phát triển:
+Sơ đồ dưới đây minh họa luồng giao tiếp dữ liệu liên tục và sự kết nối ngữ cảnh giữa 8 Skills trong suốt quy trình phát triển. Hệ thống đảm bảo tính kế thừa dữ liệu cao nhất, hạn chế tối đa việc lặp lại prompt từ phía User.
 
 ```mermaid
 graph TD
     %% Define Styles
-    classDef preProd fill:#e1bee7,stroke:#8e24aa,stroke-width:2px;
-    classDef dataIngest fill:#bbdefb,stroke:#1e88e5,stroke-width:2px;
-    classDef prodArt fill:#ffcc80,stroke:#fb8c00,stroke-width:2px;
-    classDef prodAudio fill:#c8e6c9,stroke:#43a047,stroke-width:2px;
-    classDef prodDev fill:#cfd8dc,stroke:#546e7a,stroke-width:2px;
-    classDef postProd fill:#ffab91,stroke:#e53935,stroke-width:2px;
+    classDef preProd fill:#2b2d42,stroke:#8d99ae,stroke-width:2px,color:#fff;
+    classDef dataIngest fill:#003049,stroke:#d62828,stroke-width:2px,color:#fff;
+    classDef prodArt fill:#f77f00,stroke:#fcbf49,stroke-width:2px,color:#000;
+    classDef prodAudio fill:#386641,stroke:#a7c957,stroke-width:2px,color:#fff;
+    classDef prodDev fill:#1d3557,stroke:#457b9d,stroke-width:2px,color:#fff;
+    classDef postProd fill:#6a040f,stroke:#9d0208,stroke-width:2px,color:#fff;
 
     %% Phases
-    subgraph phase1 ["Phase 1: Tiền Kỳ (Pre-Production)"]
-        GD[game-designer<br>Master GDD & UI Wireframes]:::preProd
+    subgraph phase1 ["📝 Phase 1: Tiền Kỳ (Pre-Production)"]
+        GD[game-designer<br/>Master GDD & Wireframes]:::preProd
     end
 
-    subgraph phase2 ["Phase 2: Nạp Dữ Liệu RAG (Data Ingestion)"]
-        GACf[game-art-configurator<br>Update Global DNA]:::dataIngest
-        GAC[game-art-compiler<br>Compile Local Style DNA]:::dataIngest
+    subgraph phase2 ["🧠 Phase 2: Nạp Dữ Liệu Knowledge & RAG"]
+        GACf[game-art-configurator<br/>Quản Lý Global DNA]:::dataIngest
+        GAC[game-art-compiler<br/>Dịch Local Style DNA]:::dataIngest
     end
 
-    subgraph phase3 ["Phase 3: Sản Xuất (Production)"]
-        GAO[game-art-orchestrator<br>Gen Game Assets]:::prodArt
-        GAP[game-audio-prompter<br>Gen Audio Prompts]:::prodAudio
-        GDU[game-dev-unity<br>Unity C# Architecture]:::prodDev
+    subgraph phase3 ["⚙️ Phase 3: Sản Xuất & Lập Trình (Production)"]
+        GAO[game-art-orchestrator<br/>Render & Cắt Assets]:::prodArt
+        GAP[game-audio-prompter<br/>Thiết kế BGM/SFX Prompts]:::prodAudio
+        GDU[game-dev-unity<br/>Kiến trúc C# & Gameplay]:::prodDev
     end
 
-    subgraph phase4 ["Phase 4: Hậu Kỳ (Post-Production)"]
-        ASO[game-aso-orchestrator<br>Gen ASO Assets]:::postProd
-        GPO[game-playable-orchestrator<br>Build Playable Ad HTML5]:::postProd
+    subgraph phase4 ["🚀 Phase 4: Hậu Kỳ & Marketing (Post-Production)"]
+        ASO[game-aso-orchestrator<br/>Icon & Screenshots]:::postProd
+        GPO[game-playable-orchestrator<br/>Build HTML5 Ads < 5MB]:::postProd
     end
 
     %% Flow
-    GD -- "1. GDD & UI Plan" --> GAP
+    GD -- "1. GDD & Specs" --> GAP
     GD -- "2. Art Direction" --> GAC
-    GD -- "3. Tech Spec" --> GDU
+    GD -- "3. Logic Spec" --> GDU
     
     GACf -- "Global Rules" --> GAO
     GAC -- "Style Rules & Embeddings" --> GAO
     
-    GAO -- "Art Assets" --> GDU
-    GAP -- "BGM/SFX" --> GDU
+    GAO -- "Đóng gói Art Assets" --> GDU
+    GAP -- "Đóng gói Audio" --> GDU
     
-    GDU -- "Finished Game Build" --> ASO
-    GDU -- "Finished Game Assets" --> GPO
+    GDU -- "Finished Unity Build" --> ASO
+    GDU -- "Raw Game Assets" --> GPO
     
-    ASO -- "Store Ready" --> Launch((Launch))
-    GPO -- "< 5MB Playable" --> Launch
+    ASO -- "Store Ready" --> Launch((Publishing))
+    GPO -- "Ads Ready" --> Launch
 ```
 
 ---
 
-## 2. Phân Tích & Hướng Dẫn Sử Dụng Chi Tiết
+## 2. 🧩 Phân Tích Chức Năng 8 Core Skills
 
 > [!TIP]
-> Bạn có thể gọi trực tiếp bất kỳ skill nào bằng cú pháp `@[/tên-skill] <yêu cầu>`.
+> Bạn có thể gọi trực tiếp bất kỳ skill nào trong Agent bằng cú pháp `@tên-skill <yêu cầu>`.
 
-### 🗂️ Giai Đoạn 1: Tiền Kỳ (Pre-Production)
+### 📝 Giai Đoạn 1: Lên Ý Tưởng & Thiết Kế (Pre-Production)
 
-#### 1. `game-designer` (Super Skill)
-- **Mục đích:** Kỹ năng cốt lõi (Master Orchestrator) thiết kế Game Design Document (GDD). Chạy một pipeline tự động 6 bước.
-- **Đầu vào:** Ý tưởng thô của user.
-- **Đầu ra:** File `Master_GDD.md`, 5 file phân rã (Art, Audio, Dev, UI, Data), UI Wireframes (ASCII/Mermaid), và file `Integration_Map.md`.
-- **Flow:** Chạy Phase 1 (Tạo GDD) -> Dừng lại đợi user duyệt -> Tự động chạy Phase 2 đến Phase 6 để tạo toàn bộ tài liệu kỹ thuật.
-- **Lệnh gọi:** `@[/game-designer] Hãy lên thiết kế cho một game match-3 chủ đề ma thuật.`
+#### 1. `game-designer` (Master Orchestrator)
+- **Nhiệm vụ:** Trái tim của hệ thống thiết kế. Đảm nhận việc viết Game Design Document (GDD) toàn diện.
+- **Đầu ra:** File `Master_GDD.md`, các file phân rã (Art, Audio, Dev, UI), bản vẽ UI Wireframes (bằng ASCII/Mermaid), và `Integration_Map.md`.
+- **Luồng hoạt động:** Pipeline 6 bước tự động -> Lên ý tưởng cơ bản -> *User Duyệt* -> Sinh toàn bộ tài liệu kỹ thuật rẽ nhánh.
 
-### 🧠 Giai Đoạn 2: Chuẩn Bị Dữ Liệu RAG (Data Ingestion)
+### 🧠 Giai Đoạn 2: Quản Lý Tri Thức & RAG (Data Ingestion)
+
+Trước khi sản xuất Art, Agent cần "học" phong cách và quy chuẩn vật lý/đồ họa của dự án.
 
 #### 2. `game-art-configurator`
-- **Mục đích:** Quản lý tri thức (Knowledge Management). Cập nhật file `Global_DNA.md` (các quy tắc vật lý/nghệ thuật áp dụng chung) và tự động vector hóa (RAG database).
-- **Đầu ra:** File `Global_DNA.md` cập nhật và `global_index.json`.
-- **Lệnh gọi:** `@[/game-art-configurator] Thêm quy tắc: UI button luôn phải có viền dày 2px.`
+- **Nhiệm vụ:** Quản lý `Global_DNA.md` (Quy tắc bao trùm toàn bộ dự án như viền UI, quy chuẩn an toàn, độ tương phản) và tự động Vector hóa đưa vào RAG Database.
+- **Sử dụng khi:** Cần thiết lập hoặc thay đổi quy tắc Art/UI áp dụng trên toàn Game.
 
 #### 3. `game-art-compiler`
-- **Mục đích:** Đóng gói phong cách nghệ thuật (Compile Artist Style). Biến 1 thư mục chứa các ảnh tham khảo thành cấu trúc Vector (RAG) và chiết xuất ra DNA sinh ảnh.
-- **Đầu ra:** File `Generation_DNA.md` (Quy tắc sinh) và `Evaluation_Rules.json` (Quy tắc đánh giá chấm điểm ảnh).
-- **Lệnh gọi:** `@[/game-art-compiler] Compile style cho thư mục Assets/GameArtist/StyleLibrary/SciFi.`
+- **Nhiệm vụ:** Dịch ngược một thư mục chứa ảnh mẫu (References) thành Cấu trúc dữ liệu Vector và xuất ra DNA Sinh Ảnh.
+- **Đầu ra:** File `Generation_DNA.md` (Hướng dẫn prompt chi tiết) và `Evaluation_Rules.json` (Quy chuẩn cho VLM chấm điểm ảnh).
 
-### 🛠️ Giai Đoạn 3: Sản Xuất (Production)
+### ⚙️ Giai Đoạn 3: Sản Xuất & Lập Trình (Production)
 
 #### 4. `game-art-orchestrator`
-- **Mục đích:** Tự động sinh Game Assets thực tế, tuân thủ nghiêm ngặt Global DNA và Local Style DNA thông qua RAG và Few-Shot Prompting.
-- **Flow (Human-In-The-Loop):**
-  1. Retrieve Style DNA bằng RAG.
-  2. Bắt buộc vẽ **Sketch/Silhouette** trước -> Đợi user chốt.
-  3. Áp dụng Render (Đổ màu/Ánh sáng) -> Chấm điểm (VLM Evaluator) -> Đợi user chốt.
-  4. Cắt/Resize tự động (nếu là UI) -> Ghi log vào Asset Catalog -> Copy file vào thư mục dự án.
-- **Lệnh gọi:** `@[/game-art-orchestrator] Vẽ một thanh kiếm lửa style Fantasy.`
+- **Nhiệm vụ:** Trực tiếp sinh ra Game Assets, ứng dụng triệt để Global DNA, Local DNA và Kỹ thuật Few-Shot Visual Prompting.
+- **Tính năng đặc biệt:** 
+  - Áp dụng hệ thống BFS-based Auto-Cropping để tách nền và cắt ảnh tự động.
+  - VLM Evaluator tự chấm điểm tác phẩm trước khi giao cho User.
+- **Flow:** RAG DNA -> Vẽ Sketch/Silhouette -> *User Duyệt* -> Render màu/ánh sáng -> *User Duyệt* -> Đóng gói vào dự án.
 
 #### 5. `game-audio-prompter`
-- **Mục đích:** Dịch ngôn ngữ thiết kế từ GDD và Asset List sang cấu trúc Prompt chuyên dụng cho các Audio LLM (như Suno, Udio, ElevenLabs).
-- **Đầu ra:** File `<ProjectName>_Audio_Prompt_Book.md` với các yêu cầu cực kỳ chặt chẽ về độ dài (milliseconds), Reverb, Texture, và Fatigue rules.
-- **Lệnh gọi:** `@[/game-audio-prompter] Tạo prompt âm thanh cho project Hungry_Balls.`
+- **Nhiệm vụ:** Agent kỹ thuật âm thanh (Prompt Engineer). Dịch ngôn ngữ thiết kế từ GDD sang các Prompt chuyên sâu cho các nền tảng Audio LLM (Suno, Udio, ElevenLabs) với các tham số khắt khe về Reverb, Timing (ms), và Texture.
 
 #### 6. `game-dev-unity`
-- **Mục đích:** Kỹ năng định tuyến (Router) cho toàn bộ quy trình code Unity. Bắt buộc phải thông qua các luồng planning và sử dụng các Dev Architecture patterns (Simplicity First, Surgical Changes).
-- **Đầu ra:** Script C# hoàn thiện, tối ưu bộ nhớ, architecture patterns.
-- **Flow:** Nhận yêu cầu -> Điều hướng đọc Sub-Skills (Physics, UI, Netcode...) -> Buộc chạy `/plan` -> Đợi duyệt -> Chạy `/execute` -> Kiểm tra lỗi `/debug` -> Hoàn thiện `/finish`.
-- **Lệnh gọi:** `@[/game-dev-unity] Viết script quản lý object pooling cho đạn.`
+- **Nhiệm vụ:** Kỹ sư phần mềm cốt lõi xử lý mã nguồn Unity C#. Tuân thủ triết lý *Simplicity First* và *Surgical Changes*.
+- **Workflow bắt buộc:** Khảo sát Codebase bằng MCP (`view_file`, `mcp_unityMCP_*`) -> Bắt buộc gọi lệnh Plan -> *User Duyệt* -> Gọi lệnh Execute -> Kiểm thử lỗi -> Chốt công việc. Bắt buộc tra cứu tri thức từ `GEMINI.md` trước khi code.
 
-### 🚀 Giai Đoạn 4: Hậu Kỳ (Post-Production)
+### 🚀 Giai Đoạn 4: Hậu Kỳ & Marketing (Post-Production)
 
 #### 7. `game-aso-orchestrator`
-- **Mục đích:** Tự động hóa việc lên ý tưởng và sản xuất bộ asset App Store Optimization (ASO).
-- **Flow:**
-  1. Đọc store link (tuỳ chọn) & Xác định Style -> Chốt ASO Plan.
-  2. Vẽ phác thảo (Sketch) 1 Key Art + 1 Icon + 5 Screenshots -> Đợi user chốt.
-  3. Render bản cuối cùng (Final) bằng công cụ sinh ảnh ở tỷ lệ 1:1, tự động resize/padding cho khớp.
-- **Lệnh gọi:** `@[/game-aso-orchestrator] Lên bộ ASO cho game bắn súng zombie.`
+- **Nhiệm vụ:** Phân tích từ khóa, đối thủ trên Store và trực tiếp vẽ bộ Assets Marketing (Key Art, App Icon, Screenshots). Tự động canh lề (padding) và scale chuẩn 1:1 cho App Store/Google Play.
 
 #### 8. `game-playable-orchestrator`
-- **Mục đích:** Trích xuất (Distill) nội dung từ Game chính để build thành Playable Ads (HTML5/Phaser 3) siêu nhẹ (dưới 5MB).
-- **Flow:** Hoạt động qua 4 Phase độc lập (Ingest -> Harvest -> Dev -> Package). Bắt buộc dừng ở mỗi phase để đợi người dùng hô "Tiếp tục".
-- **Đầu ra:** Một file HTML duy nhất chứa toàn bộ Logic, Base64 hình ảnh và SFX.
-- **Lệnh gọi:** `@[/game-playable-orchestrator] Tạo playable ad cho game Hungry Balls.`
+- **Nhiệm vụ:** Chiết xuất nội dung (Distillation) từ cấu trúc Unity để viết lại thành bản Playable Ad HTML5 nhẹ tênh bằng framework Phaser 3 (< 5MB).
+- **Flow:** 4 Phase (Ingest -> Harvest -> Dev -> Package). Base64 hóa toàn bộ hình ảnh và âm thanh vào duy nhất 1 file `index.html`.
 
 ---
 
-## 3. Autonomous Workflows & Interconnectivity
+## 3. 🔄 Khả Năng Liên Kết Ngữ Cảnh Tự Động (Interconnectivity)
 
-Điểm mạnh của hệ thống 8 skills này là **sự kế thừa ngữ cảnh**. Bạn không cần lặp lại thông tin:
+Hệ thống được thiết kế để loại bỏ thao tác nhập liệu thừa thãi. Bạn không cần mớm lại ngữ cảnh cho từng Skill:
 
-1. **Từ GDD đến Sản Xuất**: Sau khi `game-designer` kết thúc (sinh ra file Markdown), bạn chỉ việc gọi `game-audio-prompter` và `game-dev-unity`. Hai skill này sẽ tự động chạy lệnh `view_file` để đọc Master GDD và Integration Map, biết chính xác game thuộc thể loại nào và cần làm gì.
-2. **Từ Style Library đến Art Render**: `game-art-compiler` đã "dịch" hình ảnh mẫu thành số liệu RAG. Khi bạn gọi `game-art-orchestrator`, nó sẽ tự động chạy script python truy vấn DB, lấy ra các file hình ảnh Few-Shot và Text DNA để làm Prompt Generation mà bạn không cần phải đính kèm ảnh bằng tay.
-3. **Từ Game Build đến Marketing**: `game-playable-orchestrator` sử dụng lại toàn bộ cấu trúc (GDD, Assets, Audio) có sẵn trong thư mục dự án và chuyển mã chúng sang TypeScript/Phaser 3 thay vì phải bắt đầu code từ số 0.
+- **Inheritance từ GDD:** Khi `game-designer` kết thúc, các kỹ sư phía sau (`game-dev-unity`, `game-audio-prompter`) tự động tìm kiếm đọc `Master_GDD.md` và `Integration_Map.md` để tự lấy Specs mà không cần bạn giải thích lại game làm về cái gì.
+- **Data-Driven Art Generation:** `game-art-orchestrator` không yêu cầu bạn đính kèm ảnh mẫu. Nó tự động gọi RAG query từ kết quả của `game-art-compiler` để lấy Few-shot prompt.
+- **Tái chế Asset làm Playable:** `game-playable-orchestrator` tự mò vào thư mục Unity lấy ảnh đã export, convert sang Base64 và code lại logic tương đương trên nền tảng Web.
 
-> [!IMPORTANT]
-> **Quy tắc An Toàn (Safety Rules):** Tất cả các bộ phận sinh Code, vẽ Hình, làm ASO, và thiết kế GDD đều được khoá bằng cổng **Human-In-The-Loop**. Hệ thống sẽ luôn tạo Plan hoặc Sketch và dừng lại yêu cầu bạn `Approve` (Duyệt) trước khi chuyển sang bước tiêu tốn tài nguyên nặng (như Render hình ảnh chi tiết hay ghi đè hệ thống script cốt lõi).
+> [!CAUTION]
+> **Safety & Human-In-The-Loop Protocol:** 
+> Bất kỳ thao tác nào tiêu tốn lượng tài nguyên lớn hoặc có khả năng phá vỡ cấu trúc (như Render ảnh Final, ghi đè Script C# cốt lõi) đều bị khoá chặt. Các Agents BẮT BUỘC phải đưa ra Plan (Kế hoạch), Blueprint (Bản vẽ nháp), hoặc Sketch (Phác thảo) và dừng lại chờ người dùng **Duyệt (Approve)** trước khi thực thi.
