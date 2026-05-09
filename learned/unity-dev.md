@@ -4,6 +4,7 @@
 
 - **[Pattern] Prefab Variants for Data-Driven Spawning:** When spawning entities configured via ScriptableObjects (like Themes or Monsters), prefer linking `Prefab Variants` inside the ScriptableObject rather than hardcoding a generic base prefab and injecting properties. This encapsulates hierarchy-specific data (like child `Transforms` or `SpriteRenderers`) entirely within the variant, keeping Manager classes decoupled from visual setup.
 - **[Gotcha] Component State Bypass:** When an object uses a wrapper/controller script (e.g. `MonsterController`) to manage inner component logic (e.g. `QuantizedAudioPlayer`) and state flags (`isSinging`), UI scripts MUST call methods on the wrapper controller, NEVER directly on the nested component. Direct component calls bypass the parent's state management, causing event-driven game logic dependent on those states to silently fail.
+- **[Gotcha] ScriptableObjects and Resources.Load:** When attempting to dynamically load ScriptableObjects (or any asset) at runtime using `Resources.Load<T>("Path")`, the asset MUST be placed inside a folder named `Resources` (e.g., `Assets/Resources/Data/...`). If placed elsewhere (e.g. `Assets/Scripts/Data/`), `Resources.Load` will fail and return null, which can break fallback loading logic.
 
 ## Gameplay & Physics
 
